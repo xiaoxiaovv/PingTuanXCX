@@ -1,0 +1,185 @@
+@import "../netWork/netWork.wxss";
+page{
+  background: #eee;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 150rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #333333;
+}
+
+image{
+  width: 100%;
+  height: 100%;
+}
+::-webkit-scrollbar{
+  display: none
+}
+.section{
+  width: 100%;
+  height: auto;
+  padding: 0 24rpx;
+  box-sizing: border-box;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #333333;
+  border-top: 1rpx solid #eee;
+  margin-bottom: 16rpx;
+}
+.header{
+  width: 100%;
+  height: 88rpx;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center
+}
+.dz{
+  width: 100%
+}
+.header1,.header2{
+  flex: 50%;
+}
+.header2{
+  text-align: right
+}
+.zidingyi{
+  width: 100%;
+  height: 88rpx;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-between;
+  align-items: center
+}
+.moren,.delete,.bianji{
+  display: flex;
+  display: -webkit-flex;
+}
+.delete{
+  margin-left: 300rpx;
+}
+.moren1{
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 10rpx;
+  box-sizing: border-box;
+  border-radius: 100%;
+  
+}
+.active{
+  border: 2rpx solid #999;
+}
+.dis{
+  display: none;
+}
+.active2{
+  display: block;
+}
+.btn_new{
+  width: 688rpx;
+  height: 88rpx;
+  background-color: #FF6026;
+  border-radius: 100px;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 17px;
+  color: #FFFFFF;
+  position: fixed;
+  bottom: 32rpx;
+  left: 26rpx;
+}
+.btn_con{
+  display: flex;
+  display: -webkit-flex;
+  flex: 50%;
+}
+.btn_img{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 16rpx;
+  margin-top: 10rpx;
+}
+/* 遮罩 */
+.zhezhao{
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  z-index: 555
+}
+.tan{
+  width: 80%;
+  height: 256rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  position: absolute;
+  top: 50%;
+  margin-top: -128rpx;
+  left: 50%;
+  margin-left: -40%
+}
+.tan view{
+  width: 100%;
+  height: 160rpx;
+  text-align: center;
+  line-height: 160rpx;
+  font-size: 32rpx;
+}
+.tan button{
+  width: 50%;
+  height: 97rpx;
+  float: left;
+ 
+  font-size: 34rpx;
+}
+.tan .enter{
+ border-radius: 0  0 16rpx; 
+}
+.tan .quxiao{
+   border-radius: 0  0 0 16rpx; 
+}
+button::after{
+   border-radius: 0; 
+}
+.quxiao{
+  color: #999999;
+}
+.quxiao::after{
+  border-bottom-left-radius: 30rpx;
+}
+.enter{
+  background: #ff6026;
+  color: #FFFFFF;
+}
+.enter::after{
+ border-bottom-right-radius: 30rpx;
+}
+.nodizhi{
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  position: fixed;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #999999;
+  letter-spacing: 0;
+  text-align: center;
+  
+}
+.nodizhi image{
+  width: 248rpx;
+  height: 194rpx;
+  margin-top: 13.9%;
+}
+.nodizhi view{
+  margin-top: 35rpx
+}

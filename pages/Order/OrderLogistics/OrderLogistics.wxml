@@ -1,0 +1,45 @@
+
+<view class='v-top'>
+    <view class='v-top-text'>
+      <image src='{{defaultImageUrl}}' class='v-top-img'></image>
+      <view class='v-top-right'>
+         <view wx:if="{{expressName}}" class='v-top-right-title'>物流公司：<text>{{expressName}}</text></view>
+         <view wx:else class='v-top-right-title'>物流公司：<text>店铺自有物流</text></view>
+          <view wx:if="{{invoiceNumber}}" class='v-top-right-num'>运单编号：<text>{{invoiceNumber}}</text> 
+              <view class='copy'  bindtap='copy'>复制</view>
+          </view>
+          <view wx:else class='v-top-right-num'>订单编号：<text>{{orderSn}}</text>
+              <view class='copy'  bindtap='copy'>复制</view>
+          </view> 
+      </view>
+    </view>
+    <view class='v-top-add'>
+      <image src='../../../imgs/location@2x.png' class='icon'></image>
+      <view class='v-top-add-text'>
+      收货地址：{{address}}
+      </view>
+    </view>
+</view>
+
+<view  class='v-bot'>
+  <view class='title'>订单跟踪</view>
+  <view class='v-bot-text'>
+     <view 
+      class='list {{ success ? "success" : "arrive"}} {{(orderWorkFlowList.length-1)===index ? "list-left-last" : ""}}' 
+      wx:for='{{orderWorkFlowList}}'
+      wx:key='index'>
+       <view class='list-left'>
+        <view wx:if='{{index===0}}'>
+          <image class='icon-success' src='../../../imgs/choose.png'></image>
+          <image class='icon-arrive' src='../../../imgs/daoda.png'></image>
+        </view>
+        <view wx:else class='yuan'></view>
+       </view>
+       <view class='list-right'>
+          <view class='text {{ index===0 ? "textState" : ""}}'> {{item.name}}</view>
+          <view class='timer {{ index===0 ? "timerState" : ""}}'>{{item.val}}</view>
+       </view>
+     </view> 
+
+  </view>
+</view>

@@ -1,0 +1,702 @@
+page {
+  height: auto;
+  background: #eee;
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #333;
+  letter-spacing: 0;
+  padding-bottom: 100rpx;
+}
+
+button {
+  padding: 0;
+  margin: 0;
+}
+
+button::after {
+  border: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+image {
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  width: 100%;
+  height: 208rpx;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 10rpx 25rpx;
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: row wrap;
+}
+
+.height {
+  height: 100%;
+}
+
+.btn_top {
+  width: 218rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  border: 0.25rpx solid #999;
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #999;
+  letter-spacing: 0;
+  text-align: center;
+  margin-right: 10rpx;
+}
+
+.active {
+  color: #ff6026;
+  background: rgba(255, 68, 0, 0.05);
+  border: none;
+  border: 1rpx solid #ff6026;
+  border-radius: 4px;
+}
+
+.pinglunqu {
+  width: 100%;
+  height: auto;
+  padding: 10px 25rpx;
+  box-sizing: border-box;
+  margin-top: 10rpx;
+  position: relative;
+  background: #fff;
+}
+
+.no {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.user_top {
+  width: 100%;
+  height: 104rpx;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.img {
+  width: 64rpx;
+  height: 64rpx;
+}
+
+.img image {
+  border-radius: 100%;
+}
+
+.username {
+  flex: 40%;
+  margin-left: 20rpx;
+}
+
+.date {
+  font-size: 12px;
+  color: #999;
+}
+
+.pingjia {
+  line-height: 40rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  margin-bottom: 10rpx;
+}
+
+.tu {
+  font-size: 0;
+}
+
+.tu view {
+  display: inline-block;
+  width: 150rpx;
+  height: 150rpx;
+  margin-top: 16rpx;
+  margin-right: 28rpx;
+  vertical-align: top;
+}
+
+.tu view:nth-child(4n) {
+  margin-right: 0;
+}
+
+.shangjia {
+  width: 100%;
+  height: 175rpx;
+  background: #eee;
+  color: #666;
+  margin-top: 25rpx;
+  position: relative;
+}
+
+.shangjia1 {
+  width: 622rpx;
+  height: auto;
+  min-height: 120rpx;
+  padding-top: 20rpx;
+  margin: auto;
+}
+
+.sanjiao {
+  position: absolute;
+  width: 0rpx;
+  height: 0rpx;
+  line-height: 0rpx;
+  border-bottom: 10px solid #eee;
+  border-left: 20rpx solid #fff;
+  border-right: 20rpx solid #fff;
+  left: 114rpx;
+  top: -20rpx;
+}
+
+.zhui {
+  background: #fff;
+}
+
+.zhui_top {
+  line-height: 60rpx;
+  overflow: hidden;
+}
+
+.zhui_bottom {
+  line-height: 40rpx;
+  text-align: justify;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.zhui1 {
+  float: left;
+  color: #ff6026;
+}
+
+.zhui2 {
+  color: #999;
+  float: right;
+  font-size: 24rpx;
+}
+
+.bar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 98rpx;
+  background-color: #fff;
+  margin-top: 30rpx;
+}
+
+.bar .bar-1 {
+  float: left;
+  height: 100%;
+  width: 16%;
+}
+
+.bar .bar-3 {
+  float: left;
+  height: 100%;
+  width: 33.5%;
+  border-radius: 0;
+}
+.barClass{
+  height: 140rpx !important;
+}
+.bar-3 button {
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+}
+
+.bar .bar-1 image {
+  width: 36rpx;
+  height: 36rpx;
+  margin-left: 46rpx;
+  margin-top: 18rpx;
+  margin-bottom:11rpx;
+}
+
+.bar .text-2 {
+  font-size: 20rpx;
+  text-align: center;
+  height: 26rpx;
+  line-height: 26rpx;
+}
+
+.bar-3 button::after {
+  border-radius: 0;
+}
+
+.bar .text-1 {
+  text-align: center;
+  font-size: 28rpx;
+}
+
+.border-bar1, .border-bar2 {
+  position: absolute;
+  height: 90rpx;
+  color: #eee;
+  left: 16%;
+  line-height: 90rpx;
+  width: 3rpx;
+  text-align: center;
+}
+
+.border-bar2 {
+  left: 32%;
+}
+
+.my-contact {
+  float: left;
+  height: 100%;
+  width: 17%;
+  background: 0 0 !important;
+  color: #fff;
+}
+
+.contact-c {
+  height: 96rpx;
+  display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.contact-img {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.contact-text {
+  height: 28rpx;
+  bottom: 26rpx;
+}
+
+.my-contact::after {
+  border: none;
+}
+
+image {
+  width: 100%;
+  height: 100%;
+}
+
+.sku {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 100%;
+  left: 0;
+  transition: all 0.6s;
+  z-index: 1;
+}
+
+.sku_content {
+  width: 100%;
+  height: 1028rpx;
+  background-color: rgba(255, 255, 255, 1);
+  position: absolute;
+  bottom: 0;
+  z-index: 200;
+}
+
+.scroll {
+  top: 0;
+}
+
+.s_content {
+  width: 100%;
+  height: auto;
+  padding: 0 15rpx;
+  box-sizing: border-box;
+  font-family: PingFangSC-Regular;
+  font-size: 26rpx;
+  color: #000;
+  letter-spacing: 0;
+  line-height: 13px;
+}
+
+.sku_top {
+  width: 100%;
+  height: 250rpx;
+  border-bottom: 2rpx solid #e4e4e4;
+  display: flex;
+  display: -webkit-flex;
+}
+
+.sku_pic {
+  width: 214rpx;
+  height: 214rpx;
+  border: 1rpx solid #e4e4e4;
+  border-radius: 8rpx;
+  padding: 34rpx;
+  box-sizing: border-box;
+  margin-top: -30rpx;
+  background: #fff;
+}
+
+.sku_pickinfo {
+  width: 50%;
+  height: auto;
+  margin-left: 25rpx;
+  margin-top: 50rpx;
+}
+
+.sku_price {
+  color: #f40;
+  font-size: 32rpx;
+}
+
+.sku_kucun {
+  margin: 20rpx 0;
+}
+
+.x {
+  width: 48rpx;
+  height: 48rpx;
+  margin-top: 20rpx;
+  margin-left: 58rpx;
+}
+
+.sku_color {
+  width: 100%;
+  height: 250rpx;
+  border-bottom: 2rpx solid #e4e4e4;
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+}
+
+.btn_group {
+  width: 100%;
+  height: auto;
+}
+
+button {
+  border: none;
+  font-family: PingFangSC-Regular;
+  font-size: 22rpx;
+  color: #333;
+  letter-spacing: 0;
+}
+
+button::after {
+  border: none;
+}
+
+.btn_color {
+  width: auto;
+  min-width: 80rpx;
+  height: 52rpx;
+  background: #eee;
+  border-radius: 8rpx;
+  margin-right: 30rpx;
+  margin-bottom: 30rpx;
+  float: left;
+}
+
+.btn_active {
+  background: #ff6026;
+  color: #fff;
+}
+
+.btn_dis {
+  background: #f5f5f5;
+  color: #999;
+}
+
+.size {
+  width: 100%;
+  height: auto;
+  min-height: 200rpx;
+  border-bottom: 2rpx solid #e4e4e4;
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+}
+
+.sku_count {
+  width: 100%;
+  height: 100rpx;
+  border-bottom: 2rpx solid #e4e4e4;
+  line-height: 100rpx;
+}
+
+.shu {
+  float: left;
+}
+
+.count {
+  float: right;
+  width: 192rpx;
+  height: 54rpx;
+  border: 2rpx solid #e4e4e4;
+  margin-top: 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: row nowrap;
+  line-height: 54rpx;
+}
+
+.count view {
+  width: 33%;
+  height: 100%;
+  text-align: center;
+}
+
+.zi {
+  border-left: 1rpx solid #e4e4e4;
+  border-right: 1rpx solid #e4e4e4;
+}
+
+.jian {
+  color: #e4e4e4;
+}
+
+.submit {
+  width: 100%;
+  height: 96rpx;
+  background: #ff6026;
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  border-radius: 0;
+  margin: 0;
+  line-height: 96rpx;
+  font-size: 34rpx;
+}
+
+.contact-c {
+  display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  flex: 1;
+  height: 100%;
+  align-items: center;
+  flex-direction: column;
+}
+
+.contact-img {
+  width: 36rpx;
+  height: 36rpx;
+  margin-top: 18rpx;
+}
+
+.contact-text {
+  height: 28rpx;
+  padding-top: 15rpx;
+  line-height: 28rpx;
+}
+
+.my-contact {
+  width: 17%;
+  float: left;
+  border-radius: 0;
+  height: 96rpx;
+}
+
+.my-contact::after {
+  border: none;
+  border-radius: 0;
+}
+
+.pingjia2 {
+  white-space: pre-wrap;
+  -webkit-line-clamp: -1;
+  display: block;
+}
+.di{
+  text-align: center;
+  height: 76rpx;
+  line-height: 76rpx
+}
+
+.sku_wrap {
+  position: fixed;
+  bottom: 0;
+  height: 78%;
+  background-color: #fff;
+  width: 100%;
+  display: none;
+  z-index: 101
+}
+
+.sku_pack {
+  padding: 10px;
+}
+
+.sku_pack .sku_img {
+  position: absolute;
+  top: -20px;
+  left: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 100px;
+  height: 100px;
+  border: 1px solid #e4e4e4;
+}
+
+.sku_price_stock {
+  height: 80px;
+  margin-left: 120px;
+  font-size: 26rpx;
+  line-height: 24px;
+}
+
+.sku_price {
+  color: #f40;
+  font-size: 32rpx;
+}
+
+.lh-26 {
+  line-height: 26rpx;
+  height: 26rpx;
+}
+
+.mb-10 {
+  margin-bottom: 1rpx;
+}
+
+.sku_price text {
+  font-size: 12px;
+}
+
+.sku_title {
+  clear: both;
+  font-size: 26rpx;
+  border-top: 1px solid #e4e4e4;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+.sku_btn {
+  font-size: 22rpx;
+  height: 52rpx;
+  line-height: 52rpx;
+  text-align: center;
+  border-radius: 5px;
+  margin: 18rpx 20rpx 18rpx 0;
+  padding: 0 9px;
+  float: left;
+  background-color: #eee;
+}
+
+.sku_red {
+  background-color: #fe6026;
+  color: #fff;
+  border: none;
+}
+
+.sku_num input, .sku_num text {
+  display: block;
+  width: 52rpx;
+  height: 54rpx;
+  text-align: center;
+  line-height: 54rpx;
+  float: right;
+}
+.sku_num input{
+  border-top: 1px solid #e4e4e4;
+  border-bottom: 1px solid #e4e4e4;
+}
+.sku_num text{
+  border: 1px solid #e4e4e4;
+}
+.sku_num {
+  float: right;
+  font-weight: 400;
+}
+
+.sku_buynum {
+  border-bottom: 1px solid #e4e4e4;
+  height: 104rpx;
+}
+
+.gobuy {
+  height: 96rpx;
+  background-color: #ff6026;
+  color: #fff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  line-height: 96rpx;
+}
+
+.gobuy_gray {
+  background-color: #333;
+}
+
+.sku_close {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  height: 48rpx;
+  width: 48rpx;
+  text-align: center;
+  line-height: 40px;
+}
+
+.min_wrap {
+  height: 40%;
+  display: none;
+}
+
+.goods_down {
+  position: fixed;
+  bottom: 98rpx;
+  line-height: 50px;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  background-color: #333;
+  width: 100%;
+  height: 50px;
+  opacity: 0.8;
+  display: none;
+}
+
+.goods_down_show {
+  display: block;
+}
+
+.goods_price_opacity .text-1, .goods_price_opacity .text-2 {
+  color: #ff8d64 !important;
+}
+
+.goods_price_opacity .single-price {
+  color: #999 !important;
+}
+
+.footerClass{
+   bottom: 140rpx !important;
+}
+.mask{ background-color: #000; display: none; opacity: 0.6; height: 100%; width: 100%;position:fixed; top:0;z-index: 10}
+
+.sku_hidden {
+  display: none;
+}
+
+.sku_show {
+  display: block;
+}

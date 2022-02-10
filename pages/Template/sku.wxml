@@ -1,0 +1,67 @@
+<!--pages/Template/sku.wxml-->
+<template name="sku">
+  <!-- 商品参数 -->
+
+  <view class='sku {{isScroll?"scroll":""}}'>
+      <view class='sku_content'>
+          <view class='s_content'>
+            <!-- <block wx:for='{{}}'>
+            </block> -->
+              <view class='sku_top'>
+                  <view class='sku_pic'><image src='{{imgUrl}}'></image></view>
+                  <view class='sku_pickinfo'>
+                    <!-- <block wx:for="{{sku}}" wx:key="{{index}}"> -->
+                      <view class='sku_price'>￥{{price*count}}</view>
+                      <view class='sku_kucun'>库存{{kucun}}</view>
+                      <view>已选
+                        <text class='t-1'>{{yixuan}}</text>
+                        <text class='t-2'>{{yixuan_size}}</text>
+                        <text class='t-3'>{{yixuan_type}}</text>
+                      </view>
+                    <!-- </block> -->
+                  </view>
+                  <view class='x' catchtap='onX'><image src='../../../imgs/close.png'></image></view>
+              </view>
+              <!-- 颜色分类 -->
+              <view class='sku_color'>
+                <view>{{sgAttribute1[0].attrName}}</view>
+                <view class='btn_group'>
+                  <block wx:for="{{sgAttribute1}}" wx:key="{{index}}">
+                    <button catchtap='onColor' data-id='{{index}}' data-value='{{item.sgAttribute.attrValueName}}' class='btn_color {{active==index?"btn_active":""}}'>{{item.sgAttribute.attrValueName}}</button>
+                  </block>
+                </view>
+              </view>
+              <!-- 尺码 -->
+              <view class='size'>
+                <view>{{sgAttribute2[0].attrName}}</view>
+                <view class='btn_size'>
+                  <block wx:for="{{sgAttribute2}}" wx:key="{{index}}">
+                    <button catchtap='onSize' data-id='{{index}}' data-size='{{item.sgAttribute.attrValueName}}' class='btn_color {{active2==index?"btn_active":""}}'>{{item.sgAttribute.attrValueName}}</button>
+                  </block>
+                </view>
+              </view>
+              <!-- 种类-->
+              <view class='type'>
+                <view>{{sgAttribute3[0].attrName}}</view>
+                <view class='btn_type'>
+                  <block wx:for="{{sgAttribute3}}" wx:key="{{index}}">
+                    <button catchtap='onType' data-id='{{index}}' data-type='{{item.sgAttribute.attrValueName}}' class='btn_color {{active3==index?"btn_active":""}}'>{{item.sgAttribute.attrValueName}}</button>
+                  </block>
+                </view>
+              </view>
+              <!-- 购买数量 -->
+              <view class='sku_count'>
+                <view class='shu'>购买数量</view>
+                <view class='count'>
+                  <view catchtap='onJian' class='{{count==1?"jian":""}}'>－</view>
+                  <view class='zi'>{{count}}</view>
+                  <view catchtap='onAdd'>+</view>
+                </view>
+              </view>
+          </view>
+          <button class='submit' catchtap='enter'>确定</button>
+      </view>
+      
+  </view>
+
+</template>

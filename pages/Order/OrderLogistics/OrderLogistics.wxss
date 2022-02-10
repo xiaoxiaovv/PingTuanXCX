@@ -1,0 +1,155 @@
+
+page{background: #eee;}
+::-webkit-scrollbar{
+  display: none;
+}
+.v-top{
+  height: 340rpx;
+  border-top: 2rpx solid #F2F2F2;
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+.v-top-text{
+  height: 72px;
+  padding: 30rpx 0;
+  border-bottom: 2rpx solid #F2F2F2;
+  width: 90%;
+  margin: 0 auto;
+}
+.v-top-img{
+  float: left;
+  height: 130rpx;
+  width: 130rpx;
+}
+.v-top-right{
+  float: left;
+  margin-left: 20rpx;
+  font-size: 28rpx;
+  width: 77%;
+}
+.v-top-right-title{
+  color: #333;
+}
+
+.v-top-right-num{
+  color: #999;
+ margin-top: 13rpx;
+}
+.v-top-right-num .copy{
+  float: right;
+  border: 2rpx solid #eee;
+  padding: 0 20rpx;
+  font-size: 24rpx;
+  border-radius: 6rpx;
+  line-height: 40rpx;
+}
+
+.v-top-add{
+  height: 80rpx;
+ width: 90%;
+  margin: 0 auto;
+  padding: 30rpx 0 0 0;
+}
+.v-top-add .icon{
+  height: 48rpx;
+  width: 48rpx;
+  float: left;
+  margin-right: 10rpx;
+  margin-top: 8rpx;
+
+}
+.v-top-add-text{
+  width: 90%;
+ float: left;
+ font-size: 28rpx;
+ color: #999;
+ line-height: 42rpx;
+}
+.v-bot{
+  background: #fff;
+  padding: 32rpx 40rpx;
+}
+
+.v-bot .title{
+  font-size: 28rpx;
+  color: #333;
+}
+
+.v-bot-text{
+  width: 85%;
+  margin:  40rpx auto 0 auto;
+}
+.list{
+  position: relative;
+  width: 100%;
+  /*height: 88rpx;*/
+  border-left:4rpx solid #C0C0C0; 
+  box-sizing: border-box;
+  padding-left: 30rpx;
+  padding-bottom: 10rpx;
+}
+.list-left{
+  float: left;
+  position: relative;
+  height: 88rpx;
+}
+
+.list-left .yuan{
+  height: 14rpx;
+  width: 14rpx;
+  background: #C0C0C0;
+  border-radius: 50%;
+  position: absolute;
+  left: -37rpx;
+  bottom: top;
+}
+
+.icon-success{
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  left: -45rpx;
+  bottom: top;
+  display: none;
+}
+.icon-arrive{
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  left: -45rpx;
+  bottom: top;
+  display: none;
+}
+.list-right{
+  overflow: hidden;
+  color: #999;
+}
+.list-right .text{
+  font-size: 28rpx;
+}
+.list-right .timer{
+  font-size: 24rpx;
+  line-height: 40rpx;
+}
+.success .textState{
+   color: #FE662F;
+}
+.success .timerState{
+  color: #FE662F;
+}
+.success .icon-success{
+   display: block;
+}
+.arrive .icon-arrive{
+   display: block;
+}
+.arrive .textState{
+  color: #2979FF ;
+}
+.arrive .timerState{
+  color: #2979FF ;
+}
+.list-left-last{
+border-left:none;
+padding-bottom: 0;
+}

@@ -1,0 +1,19 @@
+
+
+.address{background: #fff;padding: 28rpx 32rpx 42rpx 32rpx;color: #000;margin-bottom: 16rpx;}
+.address-top {
+  font-size: 28rpx;
+  height:80rpx;
+  line-height: 80rpx;
+  padding-left: 48rpx;
+  width: 564rpx;
+}
+.address .mobile{float: right;}
+.address-bottom{height: 82rpx;}
+
+.address-bottom .icon{height:48rpx;width: 48rpx;float: left;}
+.address-text{float: left;width: 564rpx;font-size: 28rpx;color: #333;margin-top:6rpx;text-align:justify;}
+
+/* .address-bottom .icon{height:48rpx;width: 48rpx;float: left;margin:0 10rpx 0 0;}
+.address-text{float: left;width: 564rpx;font-size: 28rpx;color: #333;display: flex;display: -webkit-box;display: -webkit-flex;flex-direction: row;}*/
+.address-bottom .next{width: 28rpx;height: 38rpx;float:right;} 

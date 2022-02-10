@@ -1,0 +1,124 @@
+<!--pages/Pinman/Pinman-->
+
+<view class='container'>
+  <view class='tuan' data-item='{{tuaninfo}}' catchtap='onDetail'>
+    <image src='{{tuaninfo.imageUrl}}' class='shangpin'></image>
+    <view class='shangpin_detail'>
+      <view class='text'>{{tuaninfo.productName}}</view>
+      <view class='tuan_bottom'>
+        <view class='price'>
+          <view>
+            {{tuaninfo.num}}人拼团 已拼{{tuaninfo.boughtNum}}件
+          </view>
+          <view class='sheng'>
+            拼团立省{{tuaninfo.singleBuyPrice - tuaninfo.groupBuyPrice}}元
+          </view>
+          <view>
+            <text class='jiage'>￥{{tuaninfo.groupBuyPrice}}</text>
+            <text class='yuanjia'>￥{{tuaninfo.singleBuyPrice}}</text>
+          </view>
+        </view>
+        <view class='result'>
+          <view wx:if="{{!Tuan}}" class='result2'>
+            <view class='tuan-detail'>等待成团</view>
+          </view>
+          <view wx:else="{{Tuan}}" class='result3'>
+            <view class='tuan-detail'>拼团已满</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- </block> -->
+
+  <!-- 中间部分  -->
+  <view class='mid'>
+    <view class='mid_top' wx:if="{{!Tuan}}">
+      <view class='one'></view>
+      <view class='time'>
+        <view class='shengyu'>剩余
+          <text class='daojishi'> <text>{{hours}}</text>:
+          <text>{{minutes}}</text>:
+          <text>{{seconds}}</text></text> 结束</view>
+      </view>
+      <view class='one'></view>
+    </view>
+    <view class='join' wx:if="{{!Tuan}}">还差
+      <text>1</text>人，赶快邀请小伙伴来参团吧</view>
+    <view class='pin_list'>
+      <!-- 获取拼团人员头像  -->
+      <view class='relative'>
+        <image src='../../imgs/Bitmap4Copy.png' class='list'></image>
+        <view class='tuanzhang'>团长</view>
+      </view>
+      <view>
+        <image src='../../imgs/Bitmap4Copy.png' class='list'></image>
+      </view>
+
+    </view>
+    <view wx:if="{{Tuan}}" class='man'>
+      拼团已满
+    </view>
+    <!-- 我要参团 -->
+    <view class='myshare' wx:if="{{!Tuan}}">
+      <button class='btn_myshare'>邀请好友参团</button>
+      <view class='share1'>分享到3个群后，拼成率高达98%</view>
+      <view class='share1 share2'>好友拼团 > 成团发货 > 不成团退款</view>
+    </view>
+    <!-- 拼团满 -->
+    <view wx:if="{{Tuan}}" class='mid_man'>
+      <button class='btn_myshare' open-type='share'>我来发起拼团</button>
+      <view class='mid_top'>
+        <view class='one'></view>
+        <view class='time'>
+          或参加别人的拼团
+        </view>
+        <view class='one'></view>
+      </view>
+      <!-- 别人的拼团 -->
+      <block wx:for="{{other}}" wx:key="{{index}}">
+        <view class='other'>
+          <image class='other_img' src='{{item.avatar}}'></image>
+          <view class='other_name'>{{item.name}}</view>
+          <view class='other_info'>
+            <view>还差
+              <text>{{item.cha}}</text>人拼成</view>
+            <view>剩余{{item.shengyu}}</view>
+          </view>
+          <button class='btn_qupin other_join'>去拼团</button>
+        </view>
+      </block>
+      <view class='share1 share2 share3'>好友拼团 > 成团发货 > 不成团退款</view>
+    </view>
+  </view>
+
+  <!-- 底部 -->
+  <view class='maybe'>你可能还想拼</view>
+  <view class='footer'>
+    <block wx:for="{{tuijian}}" wx:key="{{index}}">
+      <view class='want' data-item='{{item}}' catchtap='onDetail'>
+        <image src='{{item.imageUrl}}'></image>
+        <view class='want_detail'>
+          <view class='want_title'>{{item.activityName}}</view>
+          <view class='want_detail detail2'>
+            <view class='left'>
+              <view class='footer_pin'>
+                <text class='footer_pintxt'>{{item.num}}</text> 人拼
+              </view>
+              <text class='jiage jiage2'>￥{{item.groupBuyPrice}}</text>
+              <text class='ft_dan'>单购价： </text>
+              <text class='yuanjia yuanjia2'>￥{{item.singleBuyPrice}}</text>
+            </view>
+            <view class='right'>
+              <button class='btn_qupin'>去拼团</button>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view wx:if="{{loading}}">
+    <button loading="true" class='loading'>加载中...</button>
+  </view>
+  <view wx:if="{{already}}" style='text-align:center'>已经到底了</view>
+</view>

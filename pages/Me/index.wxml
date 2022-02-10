@@ -1,0 +1,96 @@
+<!--pages/Me/index.wxml-->
+<import src='/pages/netWork/netWork.wxml' />
+<template is="netWork" data="{{load,networkType}}" /> 
+<view class="content-box">
+ <!--头部-->
+ <view class='my-header-box'>
+    <view class='my-header'>
+      <view class='my-header-photo'> 
+      <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <view class='my-header-info'>
+         <open-data class='my-header-name' type='userNickName'></open-data>
+         <!-- 去掉等级  -->
+         <!-- <view wx:if="{{userInfo.userGrade!=''}}" class='my-header-grade-box'>
+            <text class='my-header-grade'>{{userInfo.userGrade}}</text>
+         </view> -->
+      </view>
+    </view>
+    <!--  修改资料一期先不做 二期放开  -->
+    <!-- <view class='my-header-change'>
+       <text>修改资料</text>
+    </view> -->
+ </view>
+ <!-- 内容  --> 
+ <view>
+   <!-- my-order  -->
+     <!--  start  -->
+      <!-- <button 
+        wx:if="{{isLogin}}"
+        class='my-contact btn-common' 
+        open-type="getUserInfo"
+        bindgetuserinfo="bindGetUserInfo">
+        <view class='my-order'> 
+          <text class='my-header-order'>我的订单</text>
+            <view class='my-header-more'>
+                <text class='my-header-more-txt'>查看全部</text>
+                <image src='../../../imgs/more@2x.png' class='mg-header-more-right'></image>
+            </view>     
+        </view>
+     </button> -->
+     <view  class='my-order' bindtap='goMyOrder' > 
+        <text class='my-header-order'>我的订单</text>
+          <view class='my-header-more'>
+              <text class='my-header-more-txt'>查看全部</text>
+              <image src='/imgs/more@2x.png' class='mg-header-more-right'></image>
+          </view>     
+    </view>
+
+   <!-- end -->
+   
+   <!-- order-type  -->
+   <view class='order-type'>
+     <block  wx:key="{{index}}" wx:for="{{orderState}}">
+        <view class='order-type-dfk' data-index="{{index}}" bindtap='goToOrderList'>
+          <view class='order-state-box'>
+            <image src='{{item.img}}' class='order-type-img'></image>
+            <view wx:if="{{item.num!=0}}" class='order-state-num'  style='width:{{view.width}}rpx;height:{{view.height}}rpx;'>
+           
+              <text class='order-state-txt'>{{item.num}}</text>
+            </view>
+          </view>
+          <text class='order-type-txt'>{{item.txt}}</text>
+        </view>
+     </block>
+   </view>
+   <!--  list  -->
+   <view class='my-list'>
+
+      <block wx:key='{{index}}' wx:for="{{myList}}" >
+        <view class='my-list-common' data-id='{{item.id}}' bindtap='goToDetail'>
+           
+            <view class='my-list-common-left'>
+                <image src='{{item.img}}' class='my-common-img'></image>
+                <text class='my-list-txt'>{{item.txt}}</text>
+            </view>
+            <image src='/imgs/more@2x.png' class='mg-header-more-right  my-common-more-right'></image>
+         </view>
+     </block> 
+     
+
+         <button open-type="contact" class='my-contact btn-common'>
+        <view class='my-list-common'>
+            <view class='my-list-common-left'>
+                <image src='/imgs/kf-center.png' class='my-common-img'></image>
+                <text class='my-list-txt'>客服中心</text>
+            </view>
+            <image src='/imgs/more@2x.png' class='mg-header-more-right  my-common-more-right'>
+            </image>
+                   </view>
+         </button> 
+  
+
+   </view>
+ </view>
+
+</view>

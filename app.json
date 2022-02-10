@@ -1,0 +1,69 @@
+{
+  "pages": [
+    "pages/Home/Home",
+    "pages/Me/index",
+    "pages/Details/Vedio/Vedio",
+    "pages/Add/Add",
+    "pages/Details/index/index",
+    "pages/Details/indexVedio/indexVedio",
+    "pages/Details/Evaluate/Evaluate",
+    "pages/Order/PutOrder/PutOrder",
+    "pages/Order/MyOrder/MyOrder",
+    "pages/Order/OrderDetail/OrderDetail",
+    "pages/Me/MyCollections/MyCollections",
+    "pages/Youke/Youke",
+    "pages/Tuan/Tuan",
+    "pages/Tuan/TuanDetail/TuanDetail",
+    "pages/Address/Address",
+    "pages/Success/Success",
+    "pages/Pinman/Pinman",
+    "pages/Pinglun/Pinglun",
+    "pages/Order/OrderPayable/OrderPayable",
+    "pages/Order/OrderPending/OrderPending",
+    "pages/Order/OrderLogistics/OrderLogistics",
+    "pages/Order/OrderAftersale/OrderAftersale",
+    "pages/EditAdd/EditAdd",
+   "pages/Order/Orderrefund/Orderrefund",
+   "pages/Order/Refunddetails/Refunddetails",
+    "pages/common/commonLogin/commonLogin",
+   "pages/Order/Ordercancel/Ordercancel",
+   "pages/Order/OrderPage/OrderPage",
+   "pages/netWork/netWork"
+  ],
+  "tabBar": {
+    "color": "#999",
+    "borderStyle": "black",
+    "selectedColor": "#FF6026",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/Home/Home",
+        "text": "首页",
+        "iconPath": "imgs/tabs/guang.png",
+        "selectedIconPath": "imgs/tabs/guang-s.png"
+      },
+      {
+        "pagePath": "pages/Me/index",
+        "text": "我的",
+        "iconPath": "imgs/tabs/Mine.png",
+        "selectedIconPath": "imgs/tabs/Mine-s.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 25000,
+    "downloadFile": 25000
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "backgroundColor": "#EEEEEE",
+    "navigationBarTextStyle": "black",
+
+    "onReachBottomDistance": 50
+
+  
+
+  }
+}

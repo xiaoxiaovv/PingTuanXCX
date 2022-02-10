@@ -1,0 +1,213 @@
+page {
+  background: #f2f2f2;
+}
+
+.v-input {
+  height: 58rpx;
+  border-top: 2rpx solid #f2f2f2;
+  font-size: 28rpx;
+  color: #333;
+  padding: 30rpx 0;
+  background: #fff;
+}
+
+.input-box {
+  width: 80%;
+  margin-left: 5%;
+  position: relative;
+}
+
+.v-input .text {
+  float: left;
+  width: 140rpx;
+  line-height: 56rpx;
+}
+
+.phone_personal {
+  line-height: 56rpx;
+  padding-left: 20rpx;
+}
+
+.phone_one {
+  position: relative;
+  width: 430rpx;
+  height: 56rpx;
+  border: 1px solid #eee;
+  display: inline-block;
+  padding-left:28rpx;
+  color: #333;
+  margin-left: 11rpx;
+}
+
+.select_one {
+  padding-left: 20rpx;
+  width: 410rpx;
+  height: 56rpx;
+  line-height: 56rpx;
+  border: 1px solid #eee;
+  background: #fff;
+  z-index: 10;
+}
+
+.person_box {
+  position: relative;
+  background: #fff;
+  z-index: 10;
+}
+
+.phone_select {
+  margin-top: 0;
+  z-index: 100;
+  position: absolute;
+  top: 56rpx;
+  right: 32rpx;
+}
+
+.text-xiala {
+  height: 56rpx;
+  width: 56rpx;
+  background: #eee;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.text-xiala image {
+  height: 35rpx;
+  width: 35rpx;
+  margin: 16rpx auto 0 auto;
+  display: block;
+}
+
+.v-input2, .tuiType {
+  height: 110rpx;
+  border-top: 2rpx solid #f2f2f2;
+  border-bottom: 2rpx solid #f2f2f2;
+  font-size: 28rpx;
+  color: #333;
+  line-height: 110rpx;
+  /* padding-left:5%; */
+  background: #fff;
+}
+
+.v-input2 .text2 {
+  margin-left: 20rpx;
+}
+
+.v-input2 .text {
+  margin-left: 30rpx;
+}
+
+.v-input3 {
+  font-size: 28rpx;
+  color: #333;
+  padding-left: 5%;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding: 30rpx 0;
+  background: #fff;
+}
+
+.v-input3 .xing {
+  color: #ff6026;
+  font-size: 40rpx;
+  position: relative;
+  top: 15rpx;
+}
+
+.v-input3 .text {
+  margin-left: 30rpx;
+}
+
+.v-input3 .text2 {
+  float: right;
+  margin-right: 4%;
+  color: #999;
+}
+
+.textarea {
+  background: #fff;
+  padding-bottom: 36rpx;
+  position: relative;
+  z-index: 1;
+}
+
+textarea {
+  width: 85%;
+  height: 260rpx;
+  border: 2rpx solid #f2f2f2;
+  margin: 0 auto;
+  font-size: 28rpx;
+  padding: 20rpx;
+  line-height: 40rpx;
+}
+
+#btn {
+  font-size: 28rpx;
+  color: #fff;
+  height: 96rpx;
+  line-height: 96rpx;
+  text-align: center;
+  background: #fe662f;
+  border-radius: 0;
+  display: block;
+  width: 100%;
+}
+
+.tuiType {
+  border-bottom: 0;
+  display: flex;
+  display: -webkit-flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  padding-left: 0;
+}
+
+.tuiType text {
+  width: 156rpx;
+  margin-left: 30rpx;
+  white-space: nowrap;
+}
+
+.type_cont {
+  border-bottom: 0;
+  margin-left: 11rpx;
+  width: 435rpx;
+  background: #eee;
+  padding-left: 30rpx;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.section {
+  background: #fff;
+  height: 94rpx;
+  overflow: hidden;
+  clear: both;
+  padding-left: 20rpx;
+  border-top: 2rpx solid #f2f2f2;
+}
+
+.section .picker {
+  font-size: 28rpx;
+  line-height: 56rpx;
+  padding: 18rpx 4rpx;
+}
+
+
+.foot-sub{
+  height: 96rpx;
+  line-height: 96rpx;
+  text-align: center;
+  position: fixed;
+  background: #fff;
+  bottom: 0;
+  display: block;
+  width: 100%;
+}
+.bottom-content-phonex{
+  height: 140rpx;
+}
+

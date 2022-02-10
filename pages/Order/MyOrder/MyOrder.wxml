@@ -1,0 +1,35 @@
+<import src='/pages/orderPageTemplate/orderPageTemplate.wxml' />
+
+<view class='order-warper'>
+  <view class='order-bar'>
+    <view data-barIndex="{{index}}" class='order-bar-item {{order_Status == index ? "barActive" :""}}' wx:key='index' wx:for="{{orderBar}}" bindtap="orderBarchange">
+      {{item}}
+    </view>
+  </view>
+  <!-- 没网路展现的页面-->
+  <view class='no-network' wx:if='{{networkType}}'>
+    <image src='../../../imgs/nowlbsc@2x.png'></image>
+    <view>当前网络不给力～</view>
+  </view>
+  <scroll-view wx:else scroll-y style="height: calc(100% - 90rpx);" scroll-top="{{scroll_top}}" lower-threshold="10" bindscrolltolower="loadMore"> 
+    <!-- 有订单数据列表-->
+
+    <view class='order-content' wx:if='{{orderList.length !== 0}}'>
+     <template is='myOrderList' data='{{orderList,order_Status,isMore,isloading}}'/>
+
+    </view>
+
+    <!-- 没有数据列表-->
+    <view wx:else class='no-order'>
+      <image src='../../../imgs/nodd@2x.png'></image>
+      没有订单哦
+    </view>
+    <view class="loading" wx:if="{{isloading}}">
+      <view class="loading-content">
+        <text class='loading-txt'>加载中...</text>
+      </view>
+    </view> 
+
+
+  </scroll-view>
+</view>

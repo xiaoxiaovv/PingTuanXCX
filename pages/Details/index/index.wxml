@@ -1,0 +1,253 @@
+<import src='/pages/netWork/netWork.wxml' />
+<template is="netWork" data="{{load,networkType}}" /> 
+<!-- 商品详情 -->
+<import src="/pages/Template/sku.wxml"></import>
+<view>
+ 
+  <view >
+    <swiper indicator-dots='true' interval='3000' circular='true' bindchange='bindchange' class='{{videoCss}}' >
+      <block wx:for='{{medias}}'>
+
+       <block wx:if='{{item.videoUrl!=""}}'>
+              <image src='/imgs/bofang.png' class='vido_paly_ico {{startPlayIco}}' catchtap='startPlay'></image>
+          </block>
+        <swiper-item data-index='{{index}}' catchtap='getVideoUrl'>
+          <image src='{{item.imageUrl}}' class='iamge-item' mode='aspectFit'></image>         
+
+          <!-- <image src='/imgs/bofang.png' class='video-bf' hidden='{{!item.type==1}}'></image> -->
+        </swiper-item>
+      </block> 
+    </swiper>  
+
+    <video class='video' id="myVideo" src='{{videoUrl}}' autoplay='{{autoplay}}' bindplay='bindPlay' bindended="bindEnded"  bindpause='bindPause' hidden='{{videoHidden}}'>
+      <!-- <cover-view bindtap='ResumeVedio' class='resume'>
+             <cover-image src='/imgs/bofang.png'/> 
+      </cover-view> -->
+
+      <cover-view class='video-auto {{vedioPaly}}'  bindtap='ResumeVedio'>        
+        <cover-image src='/imgs/bofang.png' class='cover_image'/> 
+      </cover-view>
+       <!--控制视频退出-->
+      <cover-view class='video_btn' hidden='{{video_btn}}' catchtap='videoSignOut'>
+        <cover-view  class='video_btn-video'></cover-view>
+        <cover-view class='video_btn-text'>退出视频</cover-view>
+      </cover-view>
+    </video> 
+    <!--控制视频退出-->
+    <!-- <view class='video_btn' hidden='{{video_btn}}'>
+      <button catchtap='videoSignOut'>退出视频</button>
+    </view> -->
+    <view class='middle'>
+      <view class='view-price'>
+        <text class='view-1'>￥</text>
+        <text class='view-2'>{{groupBuyPrice}}</text>
+        <text class='view-3'>包邮</text>
+        <text class='view-4'>已拼{{boughtNum}}件<text class='view-5'>{{num}}人拼团</text></text>
+      </view>
+      <view class='view-6'>{{productName}}</view>
+      <view class='view-7'> 
+        <image src='/imgs/Share.png'></image>
+      </view>
+      <button class='view-8' plain='true' open-type='share'>分享</button>
+    </view>
+    <view class='bottom' hidden='{{bottom}}'>
+      <view class='text-1'>小伙伴在拼单，可直接参与</view>
+      <!-- <block wx:if='{{groups.length==1}}'>
+        <view class='item'>
+            <view class='item-1'>
+              <image src='{{groups[0].memberHead}}'></image>
+            </view>
+            <view class='item-2'>{{groups[0].memberName}}</view>
+            <view class='item-3'>还差{{groups[0].rNum}}人拼成</view>
+            <view class='item-4'>剩余
+              <text>{{result.endList[0].hours}}:</text>
+              <text>{{result.endList[0].minutes}}:</text>
+              <text>{{result.endList[0].seconds}}</text> 
+            </view>
+            <view class='item-5' catchtap='onCollage' data-index='{{index}}'>去拼团</view>
+          </view>
+      </block> --> 
+
+        <swiper vertical='{{true}}'  class='list' circular='{{true}}' interval='3000' autoplay='{{true}}' display-multiple-items='{{groups.length==1?1:2}}' >
+          <block wx:for='{{groups}}'>
+            <swiper-item >
+              <view class='item'>
+                <view class='item-1'>
+                  <image src='{{item.memberHead}}'></image>
+                </view>
+                <view class='item-2'>{{item.memberName}}</view>
+                <view class='item-3'>还差{{item.rNum}}人拼成</view>
+                <view class='item-4'>剩余
+                  <text>{{result.endList[index].hours}}:</text>
+                  <text>{{result.endList[index].minutes}}:</text>
+                  <text>{{result.endList[index].seconds}}</text> 
+                </view>
+                <view class='item-5' catchtap='onCollage' data-index='{{index}}'>去拼团</view>
+              </view>
+            </swiper-item>
+          </block>
+        </swiper>
+
+    </view>
+
+    <view class='pinJia_list'>
+      <block wx:if='{{commentList.length==0}}'>
+        <view class='ping-jia'>
+          <view class='view-1'>暂无评价</view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class='ping-jia'>
+          <view class='view-1'>商品评价</view>
+          <view class='view-2' catchtap='seePingjia'>查看全部</view>
+          <view class='view-3'>
+            <image src='/imgs/more@2x.png'></image>
+          </view>
+        </view>
+        <block wx:for="{{commentList}}">
+          <view class="comment-item">
+            <view class="comment-info">
+              <image class="comment-portrait" src='/imgs/userimg.jpg'></image>
+              <view class='comment-name'>{{item.memberName}}</view>
+              <view class='comment-time'>{{item.createTime}}</view>
+            </view>
+            <view class='comment-text'>{{item.commentContent}}</view>
+          </view>
+        </block>
+      </block>
+    </view>
+    <view class='details'>
+      <view class='text-1'>商品详情</view>
+      <image class='img' wx:for='{{detailImgs}}' data-index='{{index}}' src='{{item}}' style='width:{{auto[index].width}}rpx;height:{{auto[index].height}}rpx' mode="widthFix" bindload='autoImage'></image>
+      <view class='ViewS'></view>
+    </view>
+
+    <view class='bar {{barClassName}}'>
+      <block wx:for='{{barList}}'>
+        <block wx:if='{{index<2}}'>
+          <block wx:if='{{index===0}}'>
+            <view class='bar-1 bar-view' style='background-color:{{item.bar_backgroundColor}};' data-id='{{index}}' catchtap='myPage'>
+              <image src='{{item.imgUrl}}'></image>
+              <view class='text-2' style="color:{{item.text2_color}}">{{item.text}}</view>
+            </view>
+            <view class='border-bar1'>|</view>
+          </block>
+          <block wx:else>
+            <button open-type="contact" class='my-contact'>
+              <view class='contact-c' style='background-color:{{item.bar_backgroundColor}}' data-id='{{index}}'>
+                <image class='contact-img' src='{{item.imgUrl}}'></image>
+                <view class='contact-text' style="color:{{item.text2_color}}">{{item.text}} </view>
+              </view>
+            </button>
+            <view class='border-bar2'>|</view>
+          </block>
+        </block>
+        <block wx:else>
+        <form bindsubmit="skuShow" class='bar-3 bar-view {{GPopacity}}' data-id='{{index}}' report-submit="true">
+          <button formType="submit">
+              <view class='footer-h' style='background-color:{{item.bar_backgroundColor}}; ' data-id='{{index}}'>
+                <block wx:if='{{index==2}}'>
+                    <view class='text-1 single-price' style="color:{{item.text1_color}}">¥ {{singleBuyPrice}}</view>
+                    <view class='text-2 single-price' style="color:{{item.text2_color}}">{{item.text}}</view>
+                </block>
+                <block wx:if='{{index==3}}'>
+                  <view class='text-1' style="color:{{item.text1_color}}">¥ {{groupBuyPrice}}
+                  </view>
+                  <view class='text-2' style="color:{{item.text2_color}}">{{item.text}}</view>
+                </block>
+              </view>
+            </button>
+        </form>
+        </block>
+      </block>   
+    </view>
+
+    <!--遮罩层-->
+    <view class='zhe-zhao-ceng' hidden='{{zhe_zhao_ceng}}'></view>
+  </view>
+  <!-- 选择地址
+<view  class='label_name jiedao' bindtap="setRegion">
+   <text class='label_text label_text2'>街道</text>
+  <text class="region {{c_black}}">{{regionName}}</text>
+</view>
+<view class="hide">
+    <input placeholder="街道" name="regionName" value="{{regionName}}" />
+</view> -->
+
+
+  <!-- 商品参数 -->
+  <view class="sku_wrap {{skuHidden}}">
+    <view class="sku_pack">
+      <view class='sku_close' bindtap="sKuClose">
+        <image src='../../../imgs/close.png'></image>
+      </view>
+      <image src='{{skuimg}}' class='sku_img' />
+      <view class='sku_price_stock'>
+        <view class="sku_price">
+          <text>￥</text>{{skuPrice}} </view>
+        <view class='lh-26 mb-10'>库存 {{skustock}}</view>
+        <view class='lh-26'>已选
+          <block wx:for='{{skuwrap}}' wx:key="id">
+            "{{item.name}}"
+          </block>
+        </view>
+      </view>
+
+      <block wx:for='{{skulist}}' wx:key="id" wx:for-item="skulist">
+        <view class='sku_title'> {{skulist.skuKey}} </view>
+        <block wx:for='{{skulist.skuAttr}}' wx:key="" wx:for-item="skuAttr">
+          <view class="sku_btn {{skuAttr.sgAttribute.ishot}} {{skuAttr.sgAttribute.noStock}}" data-noStock='{{skuAttr.sgAttribute.noStock}}' data-id='{{index}}' data-sku='{{skuAttr.sgAttribute.id}}{{lk.index}}' data-code='{{skuAttr.sgAttribute.attrCode}}' data-index='{{skuAttr.sgAttribute.id}}{{lk.index}}' bindtap="ChoiceSku"> {{skuAttr.sgAttribute.attrValueName}}</view>
+        </block>
+      </block>
+      <view class="sku_title sku_buynum">
+        购买数量
+        <view class='sku_num'>
+          <text bindtap='skuNumAdd'> + </text>
+          <input bindinput="skuKey" value='{{skuNum}}' />
+          <text bindtap='skuNumMinus'> - </text>
+        </view>
+      </view>
+    </view> 
+    <form bindsubmit="goBuy" data-stock="{{skustock}}" report-submit="true">
+      <button class='{{barClassName}} border gobuy-cont' formType="submit"><text class='{{gobuy_gray}} gobuy'>确认</text></button>
+    </form>
+    <!-- <view class='gobuy {{gobuy_gray}}' bindtap="goBuy"  data-stock="{{skustock}}">确认</view> -->
+  </view>
+
+  <!--没有参数的情况-->
+  <view class="sku_wrap min_wrap {{min_wrap}}">
+    <view class="sku_pack">
+      <view class='sku_close' bindtap="minClose">
+        <image src='../../../imgs/close.png'></image>
+      </view>
+      <image src='{{productImg}}' class='sku_img' />
+      <view class='sku_price_stock'>      
+          <view class="sku_price">
+          <text>￥</text>          
+           <block wx:if='{{proType==9}}'>
+                {{singleBuyPrice}}
+              </block>
+              <block wx:else if='{{proType==6}}'>
+                      {{groupBuyPrice}}
+              </block> 
+          </view>
+
+        <view>库存 {{minSkustock}}</view>
+      </view>
+      <view class="sku_title sku_buynum">
+        购买数量
+        <view class='sku_num'>
+          <text bindtap='skuNumAddMin'> + </text>
+          <input bindinput="skuKeyMin" value='{{skuNum}}' />
+          <text bindtap='skuNumMinusMin'> - </text>
+        </view>
+      </view>
+      </view>    
+    <view class='gobuy {{gobuy_gray}} {{phonexClass}}' bindtap="goBuy" data-stock="{{minSkustock}}">确认</view>
+  </view>
+  <!--商品已经下架-->
+  <view class='goods_down {{goodsDown}} {{goodsClassName}}'>
+    商品已经下架了~
+  </view>
+  <view class="mask  {{skuHidden}} {{min_wrap}}" bindtap='close_suk'></view>
+</view>

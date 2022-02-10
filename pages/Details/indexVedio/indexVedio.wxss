@@ -1,0 +1,329 @@
+page{
+  padding: 0;
+  margin: 0;
+  background-color: #EBEBEB;
+  font-family: PingFangSC-Regular;
+}
+::-webkit-scrollbar{
+  display: none;
+}
+swiper{
+  position: relative;
+  width: 100%;
+  height: 960rpx;
+  top: 0;
+}
+.video{
+
+  width: 100%;
+  height: 100%;
+
+}
+
+.middle{
+  position: relative;
+  width: 100%;
+  height: 192rpx;
+  top: 16rpx;
+  background-color: #FFFFFF;
+}
+.middle .view-1{
+  position: absolute;
+  font-size: 28rpx;
+  color: #FF6026;
+  top: 34rpx;
+  left: 28rpx;
+}
+.middle .view-2{
+  position: absolute;
+  font-size: 48rpx;
+  color: #FF6026;
+  top: 14rpx;
+  left: 60rpx;
+}
+.middle .view-3{
+  position: absolute;
+  font-size: 24rpx;
+  color: #333333;
+  top: 30rpx;
+  left: 260rpx; 
+}
+.middle .view-4{
+  position: absolute;
+  font-size: 24rpx;
+  color: #999999;
+  top: 30rpx;
+  left: 480rpx;
+}
+.middle .view-5{
+  position: absolute;
+  font-size: 24rpx;
+  color: #999999;
+  top: 30rpx;
+  right: 32rpx;
+}
+.middle .view-6{
+  position: absolute;
+  width: 560rpx;
+  font-size: 32rpx;
+  color: #333333; 
+  top: 80rpx;
+  left: 32rpx;
+}
+.middle .view-7{
+  position: absolute;
+  width: 48rpx;
+  height: 48rpx;
+  top: 80rpx;
+  right: 64rpx;
+}
+.middle .view-7 image{
+  width: 100%;
+  height: 100%;
+}
+.middle .view-8{
+  position: absolute;
+  font-size: 14px;
+  color: #FF6026;
+  bottom: 20rpx;
+  right: 60rpx; 
+}
+
+.bottom{
+  position: relative;
+  top: 32rpx;
+  width: 100%;
+  height: 340rpx;
+  background-color: white;
+}
+
+.bottom .text-1{
+  position: absolute;
+  font-size: 14px;
+  color: #333333;
+  left: 32rpx;
+  top: 28rpx;
+}
+.bottom .list{
+  position: absolute;
+  top: 100rpx;
+  width: 100%;
+  height: 240rpx;
+}
+.bottom .list .item{
+  position: relative;
+  width: 100%;
+  height: 120rpx;
+  border-top: 1rpx solid #EEEEEE;
+}
+.bottom .list .item .item-1{
+  position: absolute;
+  width: 80rpx;
+  height: 80rpx;
+  top: 20rpx;
+  left: 32rpx;
+}
+.bottom .list .item .item-1 image{
+  width: 100%;
+  height: 100%;
+  border: 1rpx solid white;
+  border-radius: 100%;
+}
+.bottom .list .item .item-2{
+  position: absolute;
+  line-height: 120rpx;
+  left: 144rpx;
+  font-size: 14px;
+  color: #333333;   
+}
+.bottom .list .item .item-3{
+  position: absolute;
+  font-size: 24rpx;
+  color: #333333;
+  top: 26rpx;
+  left: 392rpx;
+}
+.bottom .list .item .item-4{
+  position: absolute;
+  font-size: 24rpx;
+  color: #999999;
+  bottom: 26rpx;
+  left: 392rpx;
+}
+.bottom .list .item .item-5{
+  position: absolute;
+  background: #FF6026;
+  border: 1rpx solid white;
+  border-radius: 50rpx;
+  font-size: 28rpx;
+  color: #FFFFFF;
+  line-height: 56rpx;
+  width: 148rpx;
+  height: 56rpx;
+  text-align: center;
+  bottom: 32rpx;
+  right: 42rpx;
+}
+.ping-jia{
+  position: relative;
+  top: 48rpx;
+  background-color: white;
+  width: 100%;
+  height: 500rpx;
+}
+.ping-jia .view-1{
+  position: absolute;
+  font-size: 28rpx;
+  color: #666666;
+  top: 28rpx;
+  left: 32rpx;
+}
+.ping-jia .view-2{
+  position: absolute;
+  font-size: 24rpx;
+  color: #333333;
+  top: 30rpx;
+  right: 80rpx;
+}
+
+.ping-jia .view-3{
+  position: absolute;
+  width: 48rpx;
+  height: 48rpx;
+  top: 24rpx;
+  right: 32rpx;
+}
+.ping-jia .view-3 image{
+  width: 100%;
+  height: 100%;
+}
+.ping-jia .list{
+  position: absolute;
+  width: 100%;
+  top: 100rpx;
+  height: 400rpx;
+}
+.ping-jia .list .item{
+  position: relative;
+  width: 100%;
+  height: 200rpx;
+  border-top: 1rpx solid #EEEEEE;
+}
+.ping-jia .list .item .item-1{
+  position: absolute;
+  width: 64rpx;
+  height: 64rpx;
+  top: 20rpx;
+  left: 30rpx;
+  border: 1rpx solid white;
+  border-radius: 100%;
+}
+.ping-jia .list .item .item-1 image{
+  width: 100%;
+  height: 100%;
+}
+.ping-jia .list .item .item-2{
+  position: absolute;
+  font-size: 28rpx;
+  color: #333333;
+  letter-spacing: 0;
+  top: 32rpx;
+  left: 110rpx;
+}
+.ping-jia .list .item .item-3{
+  position: absolute;
+  font-size: 24rpx;
+  color: #999999;
+  letter-spacing: 0;
+  top: 36rpx;
+  right: 34rpx;
+}
+.ping-jia .list .item .item-4{
+  position: absolute;
+  font-size: 14px;
+  color: #333333;
+  letter-spacing: 0;
+  bottom: 20rpx;
+  width: 90%;
+  left: 50%;
+  margin-left: -45%;
+
+}
+
+.details{
+  position: relative; 
+  width: 100%;
+  height: 1150rpx;
+  top: 60rpx;
+  background-color: white;
+}
+.details .text-1{
+  position: absolute;
+  font-size: 14px;
+  color: #333333;
+  top: 13rpx;
+  left: 32rpx;
+}
+.details .img{
+  position: absolute;
+  width: 94%;
+  height: 876rpx;
+  left: 50%;
+  margin-left: -47%;
+  top: 106rpx;
+}
+.details .img image{
+  width: 100%;
+  height: 100%;
+}
+
+.bar{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100rpx;
+}
+
+.bar .bar-1{
+  float: left;
+  height: 100%;
+  width:17%; 
+}
+
+.bar .bar-3{
+  float: left;
+  height: 100%;
+  width: 33%;
+}
+
+.bar .bar-1 image{
+  float: left;
+  width: 36rpx;
+  height: 36rpx;
+   margin-left: 46rpx;  
+   margin-top: 10rpx;
+}
+.bar .text-2{
+  font-size: 20rpx;
+  text-align: center;
+  /* color: #2979FF; */
+  margin-top: 55rpx;
+}
+.bar-3 .text-2{
+  margin-top: 5rpx;
+}
+.bar .text-1{
+  text-align: center;
+  font-size: 28rpx;
+  margin-top: 15rpx;
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,54 @@
+
+<import src='/pages/netWork/netWork.wxml' />
+<template is="netWork" data="{{load,networkType}}" /> 
+<!-- 没有收货地址 -->
+<view class='nodizhi' wx:if="{{nodizhi}}">
+  <image src='../../imgs/nodizhi.png'></image>
+  <view>暂无地址</view>
+</view>
+<view class='box'>
+<block wx:for="{{address}}" wx:key="{{index}}">
+<view class='section' catchtap='onSelect' data-num='{{index}}'>
+    <view class='header'>
+        <view class='header1'>{{item.co}}</view>
+        <view class='header2'>{{item.mo}}</view>
+    </view>
+    <view class='dz'>{{item.rn}} {{item.ar}}</view>
+    <view class='zidingyi'>
+        <view class='moren'  data-id='{{index}}' data-num='{{index}}' catchtap='onMoren'>
+            <view class='moren1'>
+              <image wx:if="{{index==0}}" class='{{item.de==1?"active2":"dis"}}' src='../../imgs/choose.png'></image>
+              <view class='moren1 active {{index==0?"dis":""}}'></view>
+            </view>
+            <view class='moren2'>默认地址</view>
+        </view>
+        <view class='delete' data-id='{{index}}' catchtap='onDel'>
+            <view class='moren1'><image src='../../imgs/Delete@2x.png'></image></view>
+            <view>删除</view>
+        </view>
+        <view class='bianji' data-id='{{index}}' catchtap='onEdit'>
+            <view class='moren1'><image src='../../imgs/bianji.png'></image></view>
+            <view>编辑</view>
+        </view>
+    </view>
+</view>
+
+</block>
+<view class='zhezhao' wx:if="{{zhe}}">
+    <view class='tan'>
+        <view>确定要删除该地址吗？</view>
+        <button class='quxiao' catchtap='onQuxiao'>取消</button>
+        <button class='enter' catchtap='onSure'>确定</button>
+    </view>
+</view>
+
+<button class='btn_new' catchtap='onAdd'>
+<view class='btn_con'>
+  <view class='btn_img'><image src='../../imgs/icon.png'></image></view> 
+  <view style='line-height: 88rpx;'>新建收货地址</view>
+</view>
+</button>
+</view>
+
+
+

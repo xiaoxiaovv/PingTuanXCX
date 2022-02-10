@@ -1,0 +1,62 @@
+page{
+  margin: 0;
+  padding: 0;
+  background: #eee;
+}
+.top{
+  margin-bottom: 16rpx;
+  width: 100%;
+  height: 240rpx;
+  position: relative;
+}
+.daifahuo-bj{
+  height: 240rpx;width: 100%;
+  position: absolute;left: 0;top: 0;
+  
+}
+.top .view-1{
+  color: #fff; 
+  padding:66rpx 0 0 74rpx;
+  position: relative;z-index: 2;
+}
+.top .view-1 .v-1{
+  font-size: 34rpx;
+  line-height: 48rpx;
+}
+.top .view-1 .v-2{
+  font-size: 26rpx;
+  line-height: 36rpx;
+}
+.top .view-1 .v-3{
+  font-size: 34rpx;
+  line-height: 120rpx;
+}
+
+
+
+.Logistics{
+  height: 120rpx;
+  background: #fff;
+  border-top:2rpx solid #F2F2F2;
+  margin-top: -20rpx;
+  margin-bottom: 20rpx;
+  padding: 30rpx 32rpx 0 70rpx;
+}
+.Logistics-text{
+  font-size: 28rpx;
+  color: #333;
+}
+.Logistics-text-left{
+  width: 500rpx;
+  float: left;
+}
+.Logistics-text-left .text{
+  color: #999;
+  font-size: 24rpx;
+  line-height: 50rpx;
+}
+.Logistics .next{
+  width: 28rpx;height: 38rpx;float:right;
+  margin-top: 10rpx;
+
+}

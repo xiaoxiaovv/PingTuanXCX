@@ -1,0 +1,67 @@
+
+ <import src='/pages/netWork/netWork.wxml' />
+<template is="netWork" data="{{load,networkType}}" /> 
+<form bindsubmit='onSubmit'>
+
+<view class='header'>
+    <view class='user'>
+        <view  class='label_name'> 
+          <text class='label_text'>收货人:</text>
+          <input type='text' id='name' name="co"></input>
+        </view>
+        <view  class='label_name tel'>
+          <text class='label_text'>联系方式:</text>
+          <input type='number' id='tel' name="mo"></input>
+        </view>
+        
+    </view>
+</view> 
+<view  class='label_name jiedao' catchtap="setRegion">
+   <text class='label_text label_text2'>所在地区:</text>
+  <text class="region {{c_black}}">{{regionName}}</text>
+</view>
+<view class="hide">
+    <input placeholder="街道" name="regionName" value="{{regionName}}" />
+</view>
+<view  class='label_name xiangxi'>
+   <text class='label_text'>详细地址:</text>
+   <textarea id='detail' name="ar"></textarea>
+</view>
+<!-- 设为默认 -->
+<view class='set'>
+    <text>设置为默认地址</text>
+    <view class='kai' catchtap='onSet'>
+      <image wx:if="{{setMo}}" src='../../imgs/kai@2x.png'></image>
+      <image wx:if="{{!setMo}}" src='../../imgs/off.png'></image>
+    </view>
+</view>
+<!-- 保存 -->
+  <button class='cun' form-type='submit' >保存</button>
+</form>
+<!-- 弹出遮罩选择地址 -->
+
+<view class="s_adr {{reg_show}}" animation="{{spreakingAnimation}}">
+  <view class="a_title">
+    <view class="a_left" catchtap="backRegion">
+       <image src="../../imgs/left.png" /> 
+    </view>
+    <text bindtap="regionChange"> 配送至 </text>
+    <view class="a_right" catchtap="r_close">
+      <!-- <image src="/img/close.png" /> --> 
+      x
+    </view>
+  </view>
+  <view class="a_region">
+    <text>{{r_nav}}</text>
+    <text class="a_curr">请选择</text>
+  </view>
+<scroll-view scroll-y="true" class='a_list'>
+  <!-- <view class="a_list"> -->
+    <block wx:for="{{regionList}}" wx:key="regionList">
+      <text catchtap="CityChange" data-id="{{item.id}}" data-name="{{item.name}}"  class="{{cyCurrent==item.id?'cy_current':''}}" >{{item.name}}</text>
+    </block>
+  <!-- </view> -->
+</scroll-view>
+</view>
+
+<view class="mask {{mask}}" bindtap="r_close"></view>

@@ -1,0 +1,29 @@
+<import src='/pages/orderTemplate/template.wxml' />
+<import src='/pages/addressTemplate/template.wxml' />
+<import src='/pages/productTemplate/template.wxml' />
+<import src='/pages/ordernoTemplate/template.wxml' />
+
+<view>
+  <template is='top' data='{{...top}}'/>
+</view>
+
+<view>
+  <template is='address'  data="{{orderData}}"/>
+  
+</view> 
+<view hidden='{{newBorder}}'>
+   <template is='newBorder' data='{{orderData}}'/>
+</view>
+<view class='product-box'>
+    <template is='product-checkout' data='{{orderData}}'/> 
+    <template is='orderno'  data='{{orderData,orderno}}'/> 
+</view>
+
+<!-- <view>
+  <template is='orderno'  data="{{wuliuInfo}}"/>
+</view> -->
+
+
+<view class='reder-bottom' catchtap='shop'>
+  <view  class='reder-bottom-right'>再次购买</view>
+</view>

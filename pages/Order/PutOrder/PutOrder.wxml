@@ -1,0 +1,89 @@
+<!--pages/Order/PutOrder/PutOrder.wxml-->
+<view class="content-box">
+   <view wx:if="{{!userInfo.address}}" class='header' bindtap='goToAddress'>
+    <image src='../../../imgs/add.png' class='imgs-style'></image>
+    <text class='header-txt'>点击添加收货地址</text>
+  </view> 
+  <!--  收货地址  -->
+  <view wx:if="{{userInfo.address!=''}}" class='shop-info'  bindtap='goToAddressList'>
+     <view class='address-container'>
+          <!--  收货人 电话  -->
+        <view class='shop-info-msg'>
+           <text class='shop-info-txt'>收货人: {{userInfo.name}}</text>
+           <text class='shop-info-mobile'>{{userInfo.mobile}}</text>
+        </view>
+        <!-- 收货地址 -->
+        <view class='shop-info-address'>
+          <image src='../../../imgs/location@2x.png' class='address-img'></image>
+          <text class='address-txt-left'>收货地址：{{userInfo.address}}</text>
+        </view>  
+     </view>
+     <!--  right  -->
+     <view class='address-more'>
+       <image src='../../../imgs/more@2x.png' class='address-more-img'></image>
+     </view>
+  </view>
+  <image src='../../../imgs/addressBg.png' class='address-bg-img'></image>
+ 
+  <view class='content'>
+     <view  class='content-header'>
+         <text wx:if="{{userInfo.shopName}}" class='content-title-txt'>{{userInfo.shopName}}</text>
+     </view>
+     <view class='content-product-info'>
+          <view class='container-shop-img'>
+              <image src='{{userInfo.shopImg}}' class='container-shop-img'></image>
+          </view>
+        
+          <view class='product-info-msg'>
+             <text class='product-info-txt'>{{userInfo.shopTitle}}</text>
+             <view class='product-info-parameter' wx:if="{{userInfo.shopParameter}}">
+              <text class='product-info-parameter-txt'>已选:</text>
+              <text class='product-info-parameter-txt'>{{userInfo.shopParameter}}</text>
+             </view>
+             <view class='product-info-price-box'> 
+                <text class='product-info-price'>¥{{userInfo.shopPrice}}</text>
+          
+                <text class='product-info-num'>x{{userInfo.shopNum}}</text>
+             </view>
+          </view>
+     </view>
+     <view class='product-total'>
+        <view class='product-total-box'>
+          <text class='product-total-txt'>共{{userInfo.shopNum}}件商品</text>
+          <text class='product-total-txt product-total-txt2'>小计：</text>
+          <text class='product-total-price'>￥{{userInfo.totalPrice}}</text>
+         
+        </view>
+     </view>
+      <view style='height:16rpx;background:#eee;'></view>
+     <view class='we-chat-payment'>
+        <view class='we-chat-payment-left'>
+          <image src='../../../imgs/wechatmsg.png' class='we-chat-payment-img'></image>
+          <text class='we-chat-payment-txt'>微信支付</text>
+        </view>
+        <view class='we-chat-payment-right'>
+          <icon type="success_no_circle" size="20"/>
+        </view>
+     </view>
+  </view>
+  <view class='footer {{footerClass}}'>
+     <view class='price-txt'>
+      <text class='footer-price-txt'>实付款：</text>
+      <text class='footer-price'>¥{{userInfo.totalPrice}}</text>
+     </view>
+     <!-- <view wx:if="{{isSubmit}}" class='btn-price' bindtap='goPayment'>
+        <text class='btn-price-txt'>立即支付</text>
+     </view> -->
+     <!-- <view wx:if="{{!isSubmit}}" class='disabled'>
+        <text class='btn-price-txt'>立即支付</text>
+     </view> -->
+     <form wx:if="{{isSubmit}}" bindsubmit='goPayment' class='btn-price' report-submit="true">
+      <button class='btn-price-txt pay' formType="submit" >立即支付</button>
+      </form>
+     <view wx:else class='disabled'>
+        <text class='btn-price-txt'>立即支付</text>
+     </view>
+  </view>
+</view>
+
+

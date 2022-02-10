@@ -1,0 +1,10 @@
+<!--pages/netWork/netWork.wxml-->
+<template name="netWork">
+<!-- 加载中 -->
+<view class='loading' wx:if="{{load}}"><button loading="true" class='loading top_load'>小主，稍等呢...</button></view>
+<!-- 无网络 -->
+<view class='no-network' wx:if='{{networkType}}'>
+  <image src='../../imgs/nowlbsc@2x.png'></image>
+    <view>当前网络不给力～</view>
+  </view>
+</template>

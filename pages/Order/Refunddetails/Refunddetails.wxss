@@ -1,0 +1,136 @@
+page {
+  background: #eee;
+}
+
+.list {
+  height: auto;
+  min-height: 88rpx;
+  line-height: 88rpx;
+  border-top: 2rpx solid #f2f2f2;
+  font-size: 28rpx;
+  color: #333;
+  padding: 16rpx 34rpx;
+}
+
+.list .shuoming {
+  padding: 0;
+}
+
+.list-box {
+  margin-bottom: 20rpx;
+  background: #fff;
+}
+
+.v-bot {
+  background: #fff;
+  padding: 32rpx 40rpx;
+}
+
+.v-bot .title {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.v-bot-text {
+  width: 85%;
+  margin: 40rpx auto 0 auto;
+}
+
+.v-bot {
+  background: #fff;
+  padding: 60rpx 0 80rpx 0;
+}
+
+.v-bot-item {
+  /* width: 95%; */
+  padding-left: 30rpx;
+  color: #999;
+  overflow: hidden;
+}
+
+.v-bot-item-left {
+  float: left;
+  width: 150rpx;
+  font-size: 24rpx;
+  color: #999;
+  position: relative;
+  text-align: right;
+  padding-right: 30rpx;
+}
+
+.v-bot-item-left .text {
+  line-height: 38rpx;
+}
+
+.v-bot-item-left .yuan {
+  height: 14rpx;
+  width: 14rpx;
+  position: absolute;
+  top: 0;
+  right: -6rpx;
+  background: #c0c0c0;
+  border-radius: 50%;
+}
+
+.icon-success {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  right: -15rpx;
+  top: 0;
+  display: block;
+}
+
+.icon-arrive {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  right: -15rpx;
+  top: 0;
+  display: none;
+}
+
+.v-bot-item-right {
+  width: 450rpx;
+  float: left;
+  border-left: 2rpx solid #c0c0c0;
+  padding-left: 30rpx;
+}
+
+.v-bot-item-border {
+  padding-bottom: 30rpx;
+}
+
+.right-text {
+  font-size: 28rpx;
+  line-height: 38rpx;
+}
+
+.v-bot-item-right .itmer {
+  font-size: 24rpx;
+  line-height: 38rpx;
+}
+
+.success .textState {
+  color: #fe662f;
+}
+
+.success .timerState {
+  color: #fe662f;
+}
+
+.success .icon-success {
+  display: block;
+}
+
+.arrive .icon-arrive {
+  display: block;
+}
+
+.arrive .textState {
+  color: #ff6026;
+}
+
+.arrive .timerState {
+  color: #ff6026;
+}

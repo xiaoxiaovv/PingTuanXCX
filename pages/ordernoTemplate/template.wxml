@@ -1,0 +1,13 @@
+<template name='orderno'>
+  <view class='orderno'>
+    <view class='text'>订单编号：{{orderData.orderSn}}</view>    
+    <view class='text'>支付方式：微信</view>
+    <view class='text'>下单时间：{{orderData.createTime}}</view>
+    <view class='text' hidden='{{orderno}}'>拼单时间：{{payTime}}</view>
+    <view class='text' hidden='{{orderno}}'>发货时间：{{lessShipTime}}</view>
+    <view class='text' hidden='{{orderno}}' wx:if='{{wuliuInfo.orderWorkFlowsViewA[0].expressName}}'>快递方式：{{wuliuInfo.orderWorkFlowsViewA[0].expressName}}</view>
+    <view class='text' hidden='{{orderno}}' wx:if='{{wuliuInfo.orderWorkFlowsViewA[0].invoiceNumber}}'>运单编号：{{wuliuInfo.orderWorkFlowsViewA[0].invoiceNumber}}</view>
+    <text class='copy' catchtap='onCopy'>复制</text>
+  </view>
+
+</template>

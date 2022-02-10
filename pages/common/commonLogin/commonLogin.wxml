@@ -1,0 +1,19 @@
+<view class='content'>
+
+ <view class='login-img-box'> 
+    <image src='../../../imgs/wechat_login.png' class='login-img'></image>
+   
+ </view>
+ <view class='border-line-box'>
+  <view class='border-line'></view>
+ </view>
+  <view class='show-login'>
+    <view class='show-login-box'>
+      <text class='show-login-box-txt'>申请获得以下权限：</text>
+      <text class='show-login-box-info'> <text class='yuandian'></text> 获得你的公开信息（昵称、头像等）</text>
+    </view>
+    <button class='btn-login' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+      <text>微信登录</text>
+    </button>
+  </view>
+</view>

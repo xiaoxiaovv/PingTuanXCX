@@ -1,0 +1,374 @@
+<!--pages/Success/Success-->
+<!-- <view class='loading loading2' wx:if="{{load}}"><button loading="true" class='loading top_load'>小主，稍等呢...</button></view> -->
+<!-- <import src='/pages/netWork/netWork.wxml' />
+<template is="netWork" data="{{load,networkType}}" /> -->
+<!-- 加载中 -->
+<view class='loading' wx:if="{{load}}"><button loading="true" class='loading top_load'>小主，稍等呢...</button></view>
+<!-- 无网络 -->
+<view class='no-network' wx:if='{{networkType}}'>
+  <image src='../../imgs/nowlbsc@2x.png'></image>
+    <view>当前网络不给力～</view>
+  </view>
+<view class='contain'>
+        <view class='tuan' wx:if="{{tuaninfo.groupStatus!=2 || youke_man || youke}}" catchtap='goodsDetail'>
+            <image src='{{tuaninfo.imageUrl}}' class='shangpin'></image>
+            <view class='shangpin_detail'>
+                <view class='text'>{{tuaninfo.activityName}}</view>
+                <view class='tuan_bottom'> 
+                    <view class='price'>
+                        <view>
+                          {{tuaninfo.num}}人拼团   已拼{{tuaninfo.boughtNum}}件
+                        </view>
+                        <view class='sheng'>
+                          拼团立省{{shengPrice}}元
+                        </view>
+                        <view>
+                             <text class='jiage'>￥{{groupBuyPrice}}</text>
+                            <text class='yuanjia'>￥{{singleBuyPrice}}</text> 
+                        </view> 
+                    </view>
+                    <view class='result'>
+                        <view wx:if="{{!Tuan}}" class='result2'>
+                            <view class='tuan-detail'>等待成团</view>
+                        </view>
+                        <view wx:elif="{{tuaninfo.groupStatus!=2}}" class='result3'>
+                           <view class='tuan-detail'>拼团失败</view>
+                        </view>
+                        <view wx:else="{{success && youke_man || youke}}" class='result3 result4'>
+                            <view class='tuan-detail'>拼团已满</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            
+        </view>
+
+    <!-- 拼团成功 -->
+    <view class='pincheng' wx:if="{{member && tuaninfo.groupStatus==2}}">
+        <view class='pincheng1'>
+          <view class='pincheng_img'><image src='../../imgs/pincheng.png' ></image></view>
+          <view class='ptu-success'>拼团成功</view> 
+        </view>
+        <view class='fahuo'>商家正在努力发货，请耐心等待</view>
+        <scroll-view scroll-x scroll-with-animation style="width: 100%;overflow: auto;">
+        <view class='pin_list pin_list2 {{leng<=3?"center":""}}'>  
+          <!-- 获取拼团人员头像  -->
+          <block wx:for="{{pin.actors}}" wx:key="{{index}}">
+          <view class='relative' wx:if="{{item.role==0}}">
+            <image wx:if="{{item.memberHead}}" src='{{item.memberHead}}' class='list'></image>
+              <image wx:else src='../../imgs/Bitmap4Copy.png' class='list'></image> 
+            <view wx:if="{{item.role==0}}" class='tuanzhang'>团长</view>
+          </view>
+          <view wx:if="{{item.role==1}}" class="list list2">
+              <button open-type="share"  class='btn_share'  wx:if="{{!item.memberHead}}"><image  src='../../imgs/+-.png' ></image></button>  
+            <image wx:else src='{{item.memberHead}}' class='list'></image>
+          </view>
+          
+          </block> 
+                  
+        </view>
+        </scroll-view>
+        <!-- 拼成后商品、订单信息 --> 
+        <view class='shangpin_info' catchtap='goodsDetail'>
+          <view class='shangpin_name'>商品名称</view>
+          <view class='shangpin_title' >{{tuaninfo.productName}}</view>
+          <view class='shangpin_img'><image src='../../imgs/more@2x.png'></image></view>
+        </view>
+        <view class='shangpin_info' catchtap='putOrder'>
+          <view class='shangpin_name'>订单信息</view>
+          <view class='shangpin_title shangpin_title2'>
+            <!-- <view>{{tuaninfo.actors[0].memberName}}</view> -->
+            <view class='address'>查看详情</view>
+          </view>
+          <view class='shangpin_img'><image src='../../imgs/more@2x.png'></image></view>
+        </view>
+    </view>
+    <!-- 没拼成 中间部分  -->
+    <view class='mid' wx:if="{{tuaninfo.groupStatus==0||tuaninfo.groupStatus==1}}">
+      <view class='mid_top' wx:if="{{!fail}}">
+        <view class='one'></view>
+        <view class='time'>
+          <view class='shengyu'>剩余 <text class='daojishi'> <text>{{hours}}</text>:<text>{{minutes}}</text>:<text>{{seconds}}</text></text> 结束</view>
+        </view>
+        <view class='one'></view>
+      </view>
+      <view wx:if="{{fail}}" style='text-align:center;margin-bottom:20rpx'>
+        <view>很遗憾，本次拼团未成功</view>
+        <!-- <view>本次拼团未成功</view>
+        <view>系统已自动发起退款流程</view>
+        <view>您可以发起新的拼团或参加别人的拼团</view> -->
+      </view>
+      <view class='join' wx:if="{{!fail}}">还差<text>{{tuaninfo.rNum}}</text>人，赶快邀请小伙伴来参团吧</view>
+
+      <view class='pin_list'> 
+        <view class='pin_list2'>
+        <!-- 获取拼团人员头像  -->
+         <block wx:for="{{pin.actors}}" wx:key="{{index}}"> 
+            <view class='relative' wx:if="{{item.role==0}}">
+              <image wx:if="{{item.memberHead}}" src='{{item.memberHead}}' class='list'></image>
+              <image wx:else src='../../imgs/Bitmap4Copy.png' class='list'></image> 
+              <view class='tuanzhang'>团长</view>
+            </view>  
+            <!-- 团员 -->
+            <view wx:if="{{item.role==1}}" class='list list2'>
+                <image wx:if="{{item.memberHead}}" src='{{item.memberHead}}'></image>
+                <image wx:else src='../../imgs/Bitmap4Copy.png'></image>
+            </view>
+            
+          
+         </block>  
+         <!-- 遍历加号 -->
+            <block wx:for="{{arr2}}" wx:if="{{!fail}}" wx:key="{{index}}">
+              <view class='list list2'>
+                <button class='btn_share' open-type='share'><image src='../../imgs/+-.png'></image></button>
+              </view>
+            </block>  
+          </view>         
+      </view>
+      <view wx:if="{{fail}}">
+        <button class='btn_myshare' catchtap='onPin'>我来发起拼团</button>
+        <view class='mid_top' wx:if="{{!other_length==0}}">
+          <view class='one'></view>
+          <view class='time'>
+            或参加别人的拼团
+          </view>
+          <view class='one'></view>
+        </view>
+        <!-- 别人的拼团 -->
+        <scroll-view scroll-y="true" class='scroll' wx:if="{{!other_length==0}}">
+        <block wx:for="{{other}}" wx:key="{{index}}">
+        <view class='other'>
+            <image class='other_img' wx:if="{{item.memberHead}}" src='{{item.memberHead}}'></image>
+            <image wx:else class='other_img' src='../../imgs/Bitmap4Copy.png'></image>
+            <view class='other_name'>{{item.memberName}}</view>
+            <view class='other_info'>
+                <view>还差<text>{{item.rNum}}</text>人拼成</view>
+                <view>剩余
+                <text>{{result.endList[index].hours}}:</text>
+                <text>{{result.endList[index].minutes}}:</text>
+                <text>{{result.endList[index].seconds}}</text></view>
+            </view>
+            <button class='btn_qupin other_join' catchtap='skuShow'>去拼团</button>
+        </view>
+        </block>
+        </scroll-view>
+      </view>
+     
+      <!-- 我要参团 --> 
+      <view class='myshare' wx:if="{{!fail}}">
+      <!-- <block wx:for="{{tuaninfo.actors}}" wx:key="{{index}}"> -->
+        <button class='btn_myshare' wx:if="{{member}}" open-type="share">邀请好友参团</button>
+        <form class='btn_form' wx:elif="{{youke_man && tuaninfo.groupStatus!=3 || youke && tuaninfo.groupStatus!=3}}" bindsubmit="skuShow" report-submit="true">
+        <button class='btn_myshare' formType="submit">我要参团</button>
+        </form>
+        <view class='share1'>分享到3个群后，拼成率高达98%</view>
+        <view class='share1 share2'>好友拼团 > 成团发货 > 不成团退款</view>
+      <!-- </block> -->
+      </view>
+      
+
+
+
+    </view> 
+    <!-- 拼团失败 正常情况-->
+      <view wx:if="{{pin.groupStatus==3}}" class='mid_man'>
+        <view class='shibai'>很遗憾，本次拼团未成功</view>
+        <view class='pin_list'> 
+        <!-- 获取拼团人员头像  -->
+         <block wx:for="{{pin.actors}}" wx:key="{{index}}"> 
+            <view class='relative' wx:if="{{item.role==0}}">
+              <image wx:if="{{item.memberHead}}" src='{{item.memberHead}}' class='list'></image>
+              <image wx:else src='../../imgs/Bitmap4Copy.png' class='list'></image> 
+              <view class='tuanzhang'>团长</view>
+            </view>  
+            <!-- 团员 -->
+            <view wx:if="{{item.role==1}}" class='list list2'>
+                <image wx:if="{{item.memberHead}}" src='{{item.memberHead}}'></image>
+                <image wx:else src='../../imgs/Bitmap4Copy.png'></image>
+            </view>
+         </block>
+         </view>
+        <button class='btn_myshare' catchtap='onPin'>我来发起拼团</button>
+        <view class='mid_top' wx:if="{{!other_length==0}}">
+          <view class='one'></view>
+          <view class='time'>
+            或参加别人的拼团
+          </view>
+          <view class='one'></view>
+        </view>
+        <!-- 别人的拼团 -->
+        <scroll-view scroll-y="true" class='scroll' wx:if="{{!other_length==0}}">
+        <block wx:for="{{other}}" wx:key="{{index}}">
+        <view class='other'>
+            <image class='other_img' wx:if="{{item.memberHead}}" src='{{item.memberHead}}'></image>
+            <image wx:else class='other_img' src='../../imgs/Bitmap4Copy.png'></image>
+            <view class='other_name'>{{item.memberName}}</view>
+            <view class='other_info'>
+                <view>还差<text>{{item.rNum}}</text>人拼成</view>
+                <view>剩余
+                <text>{{result.endList[index].hours}}:</text>
+                <text>{{result.endList[index].minutes}}:</text>
+                <text>{{result.endList[index].seconds}}</text></view>
+            </view>
+            <button class='btn_qupin other_join' catchtap='skuShow'>去拼团</button>
+        </view>
+        </block>
+        </scroll-view>
+        <view class='share1 share2 share3'>好友拼团 > 成团发货 > 不成团退款</view>
+      </view>
+      <!-- 游客看到拼团满页面 -->
+      <view wx:if="{{youke_man && pin.groupStatus==2 || youke && pin.groupStatus==2}}" class='mid_man'>
+        <scroll-view scroll-x scroll-with-animation style="width: 100%;overflow: auto;">
+          <view class='pin_list pin_list2 {{leng<=3?"center":""}}'>  
+            <!-- 获取拼团人员头像  -->
+            <block wx:for="{{pin.actors}}" wx:key="{{index}}">
+            <view class='relative' wx:if="{{item.role==0}}">
+              <image wx:if="{{item.memberHead}}" src='{{item.memberHead}}' class='list'></image>
+                <image wx:else src='../../imgs/Bitmap4Copy.png' class='list'></image> 
+              <view wx:if="{{item.role==0}}" class='tuanzhang'>团长</view>
+            </view>
+            <view wx:if="{{item.role==1}}" class="list list2">
+                <button open-type="share"  class='btn_share'  wx:if="{{!item.memberHead}}"><image  src='../../imgs/+-.png' ></image></button>  
+              <image wx:else src='{{item.memberHead}}' class='list'></image>
+            </view>
+            
+            </block> 
+                    
+          </view>
+          </scroll-view>
+        <!-- <view class='pin_list pincheng_list'>  
+           获取拼团人员头像  
+          <block wx:for="{{pin.actors}}" wx:key="{{index}}">
+            <view class='relative list' wx:if="{{item.role==0}}">
+              <image wx:if="{{item.memberHead}}" src='{{item.memberHead}}' class='list'></image>
+                <image wx:else src='../../imgs/Bitmap4Copy.png' class='list'></image> 
+              <view wx:if="{{item.role==0}}" class='tuanzhang'>团长</view>
+            </view>
+            <view wx:if="{{pin.num>=2 && item.role==1}}" class="list list2">
+                <button  class='btn_share'  wx:if="{{!item.memberHead}}"><image  src='../../imgs/+-.png'></image></button>  
+              <image wx:else src='{{item.memberHead}}'></image>
+            </view>
+          
+          </block> 
+                  
+        </view> -->
+        <view class='shibai'>拼团已满</view>
+        <button class='btn_myshare' catchtap='onPin'>我来发起拼团</button>
+        <view class='mid_top' wx:if="{{!other_length==0}}">
+          <view class='one'></view>
+          <view class='time'>
+            或参加别人的拼团
+          </view> 
+          <view class='one'></view>
+        </view>
+        <!-- 别人的拼团 -->
+        <scroll-view scroll-y="true" class='scroll' wx:if="{{!other_length==0}}">
+        <block wx:for="{{other}}" wx:key="{{index}}">
+        <view class='other'>
+            <image class='other_img' wx:if="{{item.memberHead}}" src='{{item.memberHead}}'></image>
+            <image wx:else class='other_img' src='../../imgs/Bitmap4Copy.png'></image>
+            <view class='other_name'>{{item.memberName}}</view>
+            <view class='other_info'>
+                <view>还差<text>{{item.rNum}}</text>人拼成</view>
+                <view>剩余
+                <text>{{result.endList[index].hours}}:</text>
+                <text>{{result.endList[index].minutes}}:</text>
+                <text>{{result.endList[index].seconds}}</text></view>
+            </view>
+            <button class='btn_qupin other_join' catchtap='skuShow'>去拼团</button>
+        </view>
+        </block>
+        </scroll-view>
+        <view class='share1 share2 share3'>好友拼团 > 成团发货 > 不成团退款</view>
+      </view>
+
+    <!-- 底 部 -->
+
+    <view class='maybe'>你可能还想拼</view>
+    <view class='footer'>
+        <block  wx:for="{{tuijian}}" wx:key="{{index}}">
+          <view class='want' bindtap='onDetail' data-item='{{item}}'>
+              <image src='{{item.imageUrl}}' ></image>
+              <view class='want_detail'>
+                <view class='want_title'>{{item.productName}}</view>
+                <view class='want_detail detail2'>
+                    <view class='left'>
+                        <view class='footer_pin'>
+                           <text class='footer_pintxt'>{{item.num}}</text>
+                           人拼
+                        </view>
+                        <text class='jiage jiage2'>￥{{item.groupBuyPrice}}</text>
+                          <text class='ft_dan'>单购价:</text>
+                          <text class='yuanjia yuanjia2'>￥{{item.singleBuyPrice}}</text>
+                    </view>
+                    <view class='right'>
+                        <button class='btn_qupin' data-item='{{item}}' catchtap='onDetail2'>去拼团</button>
+                    </view>
+                </view>
+              </view>
+          </view>
+        </block>
+        <view wx:if="{{loading}}"><button loading="true" class='loading_bottom'>加载中...</button></view>
+        <view wx:else class='di'>已经到底了</view>
+    </view>
+</view>
+
+<!-- 商品参数 -->  
+<view class="sku_wrap {{skuHidden}}">
+   <view class="sku_pack">     
+     <view class='sku_close' bindtap="sKuClose"> X </view>
+     <image src='{{skuimg}}' class='sku_img' />
+     <view class='sku_price_stock'>
+     <view class="sku_price"> <text>￥</text>{{skuPrice}} </view>    
+      <view>库存 {{skustock}}</view>
+      <view>已选  
+      <block wx:for='{{skuwrap}}' wx:key="id">
+         "{{item.name}}"
+      </block>
+      </view>
+    </view>        
+  
+  <block wx:for='{{skulist}}' wx:key="id" wx:for-item="skulist">
+    <view class='sku_title'> {{skulist.skuKey}} </view>
+    <block wx:for='{{skulist.skuAttr}}' wx:key="" wx:for-item="skuAttr">
+      <view class="sku_btn {{skuAttr.sgAttribute.ishot}}" data-id='{{index}}' data-sku='{{skuAttr.sgAttribute.id}}{{lk.index}}' data-code='{{skuAttr.sgAttribute.attrCode}}' data-index='{{skuAttr.sgAttribute.id}}{{lk.index}}' bindtap="ChoiceSku"> {{skuAttr.sgAttribute.attrValueName}}</view>
+    </block>
+  </block>
+  <view class="sku_title sku_buynum">
+    购买数量
+    <view class='sku_num'>
+      <text bindtap='skuNumAdd'> + </text>
+      <input  bindinput="skuKey" value='{{skuNum}}' />
+      <text bindtap='skuNumMinus'> - </text>
+    </view>
+  </view>
+  </view>   
+ <view  class='gobuy {{gobuy_gray}}'  catchtap="goBuy" >确认</view>
+  <!-- 遮罩层 
+<view class="mask  {{skuHidden}} {{min_wrap}}" bindtap='close_suk'></view> -->
+</view> 
+ <!--没有参数的情况-->
+  <view class="sku_wrap min_wrap {{min_wrap}}" >
+    <view class="sku_pack">     
+        <view class='sku_close' bindtap="minClose"> X </view>
+          <image src='{{productImg}}' class='sku_img' />
+        <view class='sku_price_stock'>
+              <view class="sku_price"> <text>￥</text>{{groupBuyPrice}} </view>    
+              <view>库存 {{minSkustock}}</view>      
+          </view>  
+           <view class="sku_title sku_buynum">
+            购买数量
+            <view class='sku_num'>
+              <text bindtap='skuNumAddMin'> + </text>
+              <input  bindinput="skuKeyMin" value='{{skuNum}}' />
+              <text bindtap='skuNumMinusMin'> - </text>
+            </view>
+          </view> 
+       </view>   
+       <view  class='gobuy {{gobuy_gray}}'  catchtap="goBuy" >确认</view>
+       
+ </view> 
+ <!-- 遮罩层 -->
+<view class="mask  {{skuHidden}} {{min_wrap}}" bindtap='close_suk'></view>
+
+

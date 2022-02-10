@@ -1,0 +1,6 @@
+<template name="msgItem">
+  <view>
+    <text> test</text>
+    <text> component </text>
+  </view>
+</template>

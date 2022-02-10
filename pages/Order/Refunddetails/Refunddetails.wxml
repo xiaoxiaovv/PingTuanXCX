@@ -1,0 +1,39 @@
+<view class='list-box'>
+  <view class='list'>
+    <text>订单号：</text> {{ReturnGoods.data.refundCode}}
+  </view>
+  <view class='list'>
+    <text>退款类型：</text> {{ReturnGoods.data.refundType}}
+  </view>
+  <view class='list'>
+    <text>退款金额：</text> ¥{{ReturnGoods.data.refundMoney}}
+  </view>
+  <view class='list'>
+    <text>退款原因：</text> {{ReturnGoods.data.reason}}
+  </view>
+  <view class='list'>
+    <text class='shuoming'>退款说明：</text> {{ReturnGoods.data.describe}}
+  </view>
+</view>
+
+<view class='v-bot'>
+    <view class='v-bot-item {{ success ? "success" : "arrive"}}' wx:for='{{orderWorkFlowList}}' wx:key='{{index}}'>
+          <view class='v-bot-item-left'>
+             <view class='text {{ index===0 ? "textState" : ""}}'>{{item.leftDate}}</view>
+            <view class='text {{ index===0 ? "textState" : ""}}'>{{item.leftTime}}</view>
+            <block wx:if='{{index===0}}'>
+              <image class='icon-success' src='../../../imgs/choose.png'></image>
+              <image class='icon-arrive' src='../../../imgs/daoda.png'></image>
+            </block>
+            <view wx:else class='yuan'></view>
+          </view>
+          <view class='v-bot-item-right v-bot-item-border'>
+              <view class='right-text {{ index===0 ? "textState" : ""}}'>
+              {{item.rightName}} 
+              </view>
+              <view class='itmer {{ index===0 ? "timerState" : ""}}'>
+               {{item.rightTime}} 
+              </view>
+          </view>
+    </view>
+</view>

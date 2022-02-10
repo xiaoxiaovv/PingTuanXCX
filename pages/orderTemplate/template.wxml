@@ -1,0 +1,29 @@
+<!--订单详情头部模板-->
+<template name='top'>
+  <view class='top'>
+    <image src='{{imgUrl}}' class='daifahuo-bj' />
+    <view class='view-1'>
+      <view hidden='{{hidden1}}'>
+        <view class='v-1'>{{topText1}}</view>
+        <view class='v-2'>{{topText2}}</view> 
+        <view class='v-2'>{{topText_2}}</view>
+      </view>
+      <view hidden='{{hidden2}}'>
+         <view class='v-3'>{{topText3}}</view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<!--最新物流信息模板-->
+<template name='newBorder'>
+<view class='Logistics' bindtap='chakan'>
+    <view class='Logistics-text'>
+      <view class='Logistics-text-left'>
+        <view>{{wuliuInfo.orderWorkFlowsViewA[0].orderWorkFlowList[0].name}}</view>
+        <view class='text'>{{wuliuInfo.orderWorkFlowsViewA[0].orderWorkFlowList[0].val}} </view>
+      </view>
+      <image src='../../../imgs/more@2x.png' class='next' />
+    </view>
+  </view>
+</template>

@@ -1,0 +1,48 @@
+<import src='/pages/netWork/netWork.wxml' />
+<template is="netWork" data="{{load,networkType}}" /> 
+<view class="video-page">
+  <view class="video-view">
+    <video class='video' id='myVideo'  src='{{videoUrl}}'  bindplay='bindPlay' bindended="bindEnded" bindpause='bindPause' hidden='{{videoHidden}}' poster="{{videoSnapshotUrl}}" autoplay="{{vedioPaly}}">
+  <cover-view class='controls {{ControlsShow}}'>       
+         <!-- <cover-view class="video_mask"> </cover-view>       -->
+         <!-- <cover-view class="video_mask video_mask_btn"> </cover-view>    -->
+         <cover-view bindtap='ResumeVedio' class='resume'>
+             <cover-image src='/imgs/bofang.png'/> 
+         </cover-view>
+           <!-- <cover-view class='net_remind'>  
+               <cover-view>{{remind}}</cover-view>
+               <cover-view>暂停播放</cover-view>
+           </cover-view>    -->
+   </cover-view>
+</video>
+  </view>
+  <view class="info">
+    <view class="info-items">
+      <view class='bottom' catchtap='detail'>
+        <image class="img" src='{{imageUrl}}'></image>
+        <view class="prod-info">
+          <view class='bottom-text1'>看视频，买好货 | {{productName}}</view>
+          <view class='bottom-text2'>
+            <text class='t-1'>{{num}}人拼团</text>
+            <text class='t-2'>已拼{{boughtNum}}件</text>
+          </view>
+          <view class='bottom-text3'>拼团立省{{shengPrice}}元</view>
+          <view class="price">
+            <text class='bottom-text4'><text>¥</text>{{groupBuyPrice}}</text>
+            <text class='bottom-text5'><text>¥</text>{{singleBuyPrice}}</text>
+          </view>
+        </view>
+      </view>
+      <!--分享-->
+      <view class='videoCover'>
+        <!-- <view class='video-cover' class='video-cover'></view>  -->
+        <view class='cover-view'>分享</view>
+        <image src='/imgs/fenxiang_red.png' class='cover-image'></image>
+        <button class='video-button' open-type='share'></button>
+      </view>
+ 
+    </view>
+  </view>
+</view> 
+  
+ 

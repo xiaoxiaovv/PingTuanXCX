@@ -1,0 +1,187 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.1.1",
+	"appid": "wx3d7103b9022e7938",
+	"projectname": "PingTuan7.23",
+	"svr": "",
+	"client": "",
+	"qcloudRoot": "",
+	"miniprogramRoot": "",
+	"pluginRoot": "",
+	"scripts": {
+		"beforeCompile": "",
+		"beforePreview": "",
+		"beforeUpload": ""
+	},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 18,
+			"list": [
+				{
+					"id": -1,
+					"name": "我的订单",
+					"pathName": "pages/Order/MyOrder/MyOrder",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "拼团成功/失败",
+					"pathName": "pages/Success/Success",
+					"query": ""
+				},
+				{
+					"id": 3,
+					"name": "订单列表",
+					"pathName": "pages/Order/MyOrder/MyOrder",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "首页",
+					"pathName": "pages/Home/Home",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "详情页---顶部是视频",
+					"pathName": "pages/Details/Vedio/Vedio",
+					"query": ""
+				},
+				{
+					"id": 5,
+					"name": "订单详情--待收货/确认收货/待退款",
+					"pathName": "pages/Order/OrderPending/OrderPending",
+					"query": "id != null && id == 1"
+				},
+				{
+					"id": 8,
+					"name": "订单详情---待发货",
+					"pathName": "pages/Order/OrderDetail/OrderDetail",
+					"query": ""
+				},
+				{
+					"id": 9,
+					"name": "详情页",
+					"pathName": "pages/Details/index/index",
+					"query": "activityId=35"
+				},
+				{
+					"id": 10,
+					"name": "订单结算---立即支付",
+					"pathName": "pages/Order/PutOrder/PutOrder",
+					"query": ""
+				},
+				{
+					"id": 11,
+					"name": "订单详情--待支付/取消订单/去支付",
+					"pathName": "pages/Order/OrderPayable/OrderPayable",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "评价列表",
+					"pathName": "pages/Pinglun/Pinglun",
+					"query": ""
+				},
+				{
+					"id": 13,
+					"name": "查看物流",
+					"pathName": "pages/Order/OrderLogistics/OrderLogistics",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "拼满",
+					"pathName": "pages/Pinman/Pinman",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "申请售后",
+					"pathName": "pages/Order/OrderAftersale/OrderAftersale",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "退款售后列表",
+					"pathName": "pages/Order/Orderrefund/Orderrefund",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "新增地址",
+					"pathName": "pages/Add/Add",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "收货地址列表",
+					"pathName": "pages/Address/Address",
+					"query": ""
+				},
+				{
+					"id": 18,
+					"name": "退款详情",
+					"pathName": "pages/Order/Refunddetails/Refunddetails",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/Me/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的订单",
+					"pathName": "pages/Order/MyOrder/MyOrder",
+					"query": ""
+				},
+				{
+					"id": 20,
+					"name": "订单已经取消/再次购买",
+					"pathName": "pages/Order/Ordercancel/Ordercancel",
+					"query": ""
+				},
+				{
+					"id": 21,
+					"name": "订单详情--------页面重做",
+					"pathName": "pages/Order/OrderPage/OrderPage",
+					"query": "this.data.orderShowStatu=6"
+				},
+				{
+					"id": 22,
+					"name": "首页分享用户进去",
+					"pathName": "pages/Home/Home",
+					"query": "promotionCode=1821106517"
+				}
+			]
+		}
+	}
+}

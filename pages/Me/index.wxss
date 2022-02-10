@@ -1,0 +1,217 @@
+/* pages/Me/index.wxss */
+@import "../netWork/netWork.wxss";
+page{
+  width: 100%;
+  height: 100%;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+.content-box{
+  background: #eee;
+  display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  flex-direction: column; 
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+.my-header-box{
+  position: relative;
+}
+.my-header{
+  display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  flex-direction: row;
+  background-image:url(http://cdn09.ehaier.com/shunguang/H5/www/img/mine/mine_tit_bg.png);
+  background-size: 100% 100%;
+}
+.my-header-photo{
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 50%;
+  /* background: #71C7F8; */
+  overflow: hidden;
+  margin-top: 48rpx;
+  margin-left: 40rpx;
+  margin-bottom: 74rpx;
+}
+.my-header-photo-img{
+  /* padding: 10rpx; */
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+.my-header-info{
+  margin-top: 80rpx;
+  margin-left: 26rpx;
+}
+.my-header-name{
+  font-size: 36rpx;
+  color: #fff;
+}
+.my-header-grade-box{
+  border: 1px solid #fff;
+  border-radius: 200rpx;
+  width: 132rpx;
+  height: 40rpx;
+  margin-top: 6rpx;
+  text-align: center;
+  line-height: 40rpx;
+}
+.my-header-grade{
+  font-size: 24rpx;
+  color: #fff;
+}
+.my-header-change{
+  position: absolute;
+  right: 44rpx;
+  top: 20rpx;
+  color: #fff;
+  font-size: 24rpx;
+}
+.mg-header-more-right{
+  width: 48rpx;
+  height: 48rpx;
+}
+.my-order{
+  display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 80rpx;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+.my-header-order{
+  font-size: 28rpx;
+  color: #333;
+  margin-left: 32rpx;
+}
+.my-header-more{
+  display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 20rpx;
+}
+.my-header-more-txt{
+  font-size: 28rpx;
+  color: #999;
+}
+.order-type{
+   display: flex;
+   display: -webkit-box;
+   display: -webkit-flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   height: 150rpx;
+   background: #fff;
+}
+.order-type-dfk{
+  display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+}
+.order-type-img{
+  width: 40rpx;
+  height: 40rpx;
+}
+.order-type-txt{
+  font-size: 26rpx;
+  color: #666;
+  margin-top: 14rpx;
+}
+.my-list{
+  margin-top: 20rpx;
+  background: #fff;
+  display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  flex-direction: column;
+}
+.my-list-common{
+  border-bottom: 1px solid #eee;
+  height: 84rpx;
+  display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.my-common-img{
+  width: 48rpx;
+  height: 48rpx;
+   margin-left: 46rpx;
+}
+.my-list-txt{
+  margin-left: 24rpx;
+  color: #333;
+  font-size: 28rpx;
+}
+.my-list-common-left{
+  display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  flex-direction: row;
+  align-items: center;
+  height: 84rpx;
+}
+.my-common-more-right{
+  margin-right: 20rpx;
+}
+
+.my-contact {
+  width: 100%;
+  background: none !important;
+  color: #000 !important;
+  border-radius:0 !important;
+
+}
+
+.my-contact::after{
+  border: none;
+}
+.btn-common{
+  margin-left: 0;
+  margin-right:0;
+  padding-left:0;
+  padding-right:0;
+}
+.order-state-box{
+  position: relative;
+  flex: 1;
+}
+.order-state-num{
+  position: absolute;
+  left: 32rpx;
+  bottom: 30rpx; 
+  height: 30rpx; 
+  border: 2rpx solid #FF6026;
+  background: #fff;
+  border-radius: 50%; 
+  text-align: center;
+  display: -webkit-box;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.order-state-txt{
+  
+  font-size: 20rpx;
+  color: #FF6026;
+  
+}

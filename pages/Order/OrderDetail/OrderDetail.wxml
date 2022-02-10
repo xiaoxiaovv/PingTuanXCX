@@ -1,0 +1,49 @@
+<import src='/pages/orderTemplate/template.wxml' />
+<import src='/pages/addressTemplate/template.wxml' />
+<import src='/pages/productTemplate/template.wxml' />
+<import src='/pages/ordernoTemplate/template.wxml' />
+
+<view>
+  <template is='top' data='{{...top}}' />
+</view>
+
+<view>
+  <template is='address' data="{{orderData}}" />
+</view>
+
+<view class='product-box'>
+  <template is='product-checkout' data='{{orderData}}' />
+  <view class='details-box'>
+    <view class='details' catchtap='pinDetail'>拼团详情</view>
+  </view>
+  <view class='product-box-bottom'>
+    <view class='contact'>
+      <image src='../../../imgs/kf-center.png' class='icon' />
+      <text>联系卖家</text>
+      <button open-type='contact'></button>
+    </view>
+    <view class='tel' catchtap='onTel'>
+      <image src='../../../imgs/tell@2x.png' class='icon' />
+      <text>拨打电话</text>
+    </view>
+  </view>
+  <template is='orderno' data='{{orderData,orderno}}' />
+</view>
+
+<!-- <view>
+  <template is='orderno' data='{{wuliuInfo,orderno}}'/>
+</view> -->
+<view class='we-chat-payment'>
+  <view class='we-chat-payment-left'>
+    <image src='../../../imgs/wechatmsg.png' class='we-chat-payment-img'></image>
+    <text class='we-chat-payment-txt'>微信支付</text>
+  </view>
+  <view class='we-chat-payment-right'>
+    <icon type="success_no_circle" size="20" />
+  </view>
+</view>
+
+<view class='reder-bottom'>
+  <view wx:if="{{tui}}" class='reder-bottom-left' catchtap='tuiKuan'>申请退款</view>
+  <view class='reder-bottom-right' bindtap='pinDetail'>邀请好友</view>
+</view>

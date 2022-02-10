@@ -1,0 +1,70 @@
+<form bindsubmit='onSubmit'>
+  <view class='tuiType'>
+    <text>退货类型：</text>
+    <input class='type_cont' disabled='true' value='{{tuiType}}'></input>
+  </view>
+  <!-- 
+    <dropdown-box selectStateData='{{selectStateData2}}' bind:myevent="myevent"></dropdown-box>
+    <dropdown-box selectStateData='{{selectStateData3}}' bind:myevent="myevent"></dropdown-box> 
+     -->
+
+  <view class="section">
+    <!-- <view class="section__title">收货状态</view> -->
+    <picker value="{{index2}}" bindchange='onReturnGoodsChange' selectStateData='{{selectStateData2}}' range="{{selectStateData2.list}}">
+      <view class="picker">
+        收货状态：
+        <view class="phone_one" bindtap="clickPerson">
+            {{selectStateData2.list[index2]}}
+            <view class='text-xiala'>
+              <image src='../../../imgs/xiala.png'></image>
+            </view>
+          </view>
+      </view>
+    </picker>
+  </view>
+
+  <view class="section">
+    <picker value="{{index3}}" bindchange='onRefundReasonChange' range="{{selectStateData3.list}}" selectStateData='{{selectStateData3}}'>
+      <block wx:if='{{refundReason === ""}}'>
+        <view class="picker">
+          退款原因：
+          <view class="phone_one" bindtap="clickPerson">
+            {{selectStateData3.firstPerson}}
+            <view class='text-xiala'>
+              <image src='../../../imgs/xiala.png'></image>
+            </view>
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="picker">
+          退款原因：
+          <view class="phone_one" bindtap="clickPerson">
+            {{selectStateData3.list[index3]}}
+            <view class='text-xiala'>
+              <image src='../../../imgs/xiala.png'></image>
+            </view>
+          </view> 
+        </view>
+      </block>
+    </picker>
+  </view>
+  <view class='v-input2'>
+    <text class='text'>退款金额：</text>
+    <text class='text2'>¥{{orderAmount}}</text>
+  </view>
+
+  <view class='v-input3'>
+    <text class='text'>退款说明 <text class='xing'>*</text> </text>
+    <text class='text2'>你还可以输入{{num}}字</text>
+  </view>
+
+  <view class='textarea'>
+    <textarea name="evaContent" maxlength="150" value="{{evaContent}}" bindinput='onInput' class="weui-textarea" bindblur="charChange" />
+  </view>
+
+  <view class='foot-sub {{footerClass}}'>
+    <button id="btn" form-type='submit'>提交申请</button>
+  </view>
+
+</form>

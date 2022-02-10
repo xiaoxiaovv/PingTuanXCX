@@ -1,0 +1,23 @@
+
+ /* 订单编号模板 */
+.orderno {
+  background: #fff;
+  margin-top: 20rpx;
+  padding: 24rpx 40rpx;
+  position: relative;
+}
+.orderno .text{
+  font-size: 24rpx;
+  color: #999;
+  line-height:36rpx;
+}
+.copy{
+  font-size: 24rpx;
+  color: #999999;
+  border: 2rpx solid #EEEEEE;
+  border-radius: 6rpx;
+  padding: 4rpx 20rpx;
+  position: absolute;
+  right: 40rpx;
+  top: 20rpx;
+}

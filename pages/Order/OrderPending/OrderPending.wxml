@@ -1,0 +1,62 @@
+<import src='/pages/orderTemplate/template.wxml' />
+<import src='/pages/addressTemplate/template.wxml' />
+<import src='/pages/productTemplate/template.wxml' />
+<import src='/pages/ordernoTemplate/template.wxml' />
+
+<view>
+  <template is='top' data='{{...top}}' />
+</view>
+
+<view>
+  <template is='address' data='{{orderData}}' />
+  <view hidden='{{newBorder}}'>
+     <template is='newBorder' data='{{orderData}}' />
+  </view>
+</view>
+
+<view class='product-box'>
+  <template is='product-checkout' data='{{orderData}}' />
+
+  <view class='details-box' hidden='{{detailsBox}}'>
+    <view class='details-pin-1 ' catchtap='onSever'>申请售后</view>
+    <view class='details-pin-2 ac' catchtap='pinDetail'>拼团详情</view>
+  </view>
+  <view class='details-box' hidden='{{!detailsBox}}'>
+    <view class='details-seller-1 ' catchtap='pinDetail'>拼团详情</view>
+    <view class='details-seller-2 ac' catchtap='sellerDetail'>待卖家处理（详情）</view>
+  </view>
+  <view class='product-box-bottom'>
+    <view class='contact'>
+      <image src='../../../imgs/kf-center.png' class='icon' />
+      <text>联系卖家</text>
+      <button open-type='contact'></button>
+    </view>
+    <view class='tel' catchtap='onTel'>
+      <image src='../../../imgs/tell@2x.png' class='icon' />
+      <text>拨打电话</text>
+    </view>
+  </view>
+  <template is='orderno' data='{{orderData,orderno}}' />
+</view>
+
+<!-- <view>
+  <template is='orderno' data='{{wuliuInfo,orderno}}' />
+</view> -->
+<view class='we-chat-payment'>
+  <view class='we-chat-payment-left'>
+    <image src='../../../imgs/wechatmsg.png' class='we-chat-payment-img'></image>
+    <text class='we-chat-payment-txt'>微信支付</text>
+  </view>
+  <view class='we-chat-payment-right'>
+    <icon type="success_no_circle" size="20" />
+  </view>
+</view>
+
+
+<view class='reder-bottom {{footerClassName}}' hidden='{{rederBottom}}'>
+  <view class='reder-bottom-left' catchtap='chakan'>查看物流</view>
+  <view class='reder-bottom-right' catchtap='confirmOrderProduct'>确认收货</view>
+</view>
+<view class='reder-bottom {{footerClassName}}' hidden='{{noBottom}}'>
+  <view class='reder-bottom-shop' catchtap='shop'>再次购买</view>
+</view>

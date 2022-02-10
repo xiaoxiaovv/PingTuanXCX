@@ -1,0 +1,31 @@
+
+ <!-- 商品结算模板 -->
+<template name='product-checkout'>
+  <view class='product-checkout'>
+    <view class='product-checkout-title'>{{orderData.o2oStoreName}}</view>
+    <view class='product-checkout-center' catchtap='goShop'>
+       <image src='{{orderData.defaultImageUrl}}'               class='checkout-center-img'/> 
+       <view class='checkout-center-text'>
+
+          <view class='text'>{{orderData.productFullName}}</view>
+          <view class='text over-h'>{{orderData.productName}}</view>  
+          <block wx:if="{{orderData.attrName != null}}">
+            <text class='center-text'>已选：{{orderData.attrName}}</text>
+          </block>
+          <block wx:else>
+            <text decode="{{true}}">&nbsp;</text>
+          </block>
+          <view class='checkout-center-text3'>
+              <text class='price'>￥{{orderData.price}}</text>
+              <text class='num'>x{{orderData.number}}</text>
+          </view>
+       </view>
+    </view>
+    <view class='product-checkout-bootom'>
+      <text class='heji'>共{{orderData.number}}件商品</text>
+      <view class='total-price'>合计:
+        <text class='pic'>￥{{price}}</text>(含运费0元)            
+      </view>
+    </view>
+  </view>
+</template>

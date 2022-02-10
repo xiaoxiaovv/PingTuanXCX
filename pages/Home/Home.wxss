@@ -1,0 +1,179 @@
+/* pages/Home/Home.wxss */
+@import "../netWork/netWork.wxss";
+::-webkit-scrollbar {
+  display: none;
+}
+
+page {
+  font-family: PingFangSC-Regular;
+  height: 100%;
+}
+
+swiper {
+  height: 240rpx;
+}
+
+swiper-item {
+  height: 240rpx;
+}
+
+swiper-item image {
+  height: 100%;
+  width: 100%;
+}
+
+page {
+  background: #eee;
+}
+
+.slide-image {
+  width: 100%;
+}
+
+.home_lists {
+  background: #fff;
+  margin-top: 16rpx;
+  position: relative;
+}
+
+.home_listimg {
+  display: block;
+  height: 360rpx;
+  width: 100%;
+}
+
+.home_text {
+  padding: 0 24rpx 32rpx 24rpx;
+  position: relative;
+}
+
+.home_title {
+  font-size: 32rpx;
+  color: #333;
+  line-height: 1;
+  overflow-x: hidden;
+  padding: 20rpx 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.home_body {
+  line-height: 44rpx;
+  margin-top: 0;
+}
+
+.home_text_icon {
+  color: #ff6026;
+  font-size: 24rpx;
+  margin-left: 10rpx;
+}
+
+.home_text_pire {
+  color: #ff6026;
+  font-size: 32rpx;
+  font-weight: 900;
+  margin-right: 16rpx;
+  font-family: PingFangSC-Medium;
+}
+
+.home_text_usernum {
+  font-size: 24rpx;
+  border: 2rpx #ff6026 solid;
+  border-radius: 200rpx;
+  color: #ff6026;
+  padding: 0 16rpx;
+}
+
+.home_text_pire2 {
+  color: #666;
+  font-size: 24rpx;
+}
+
+.home_text_btn {
+  background: #ff6026;
+  border-radius: 200rpx;
+  font-size: 28rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 56rpx;
+  width: 148rpx;
+  height: 56rpx;
+  position: absolute;
+  right: 32rpx;
+  bottom: 28rpx;
+}
+
+.home_loding {
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 遮罩 */
+
+.zhezhao {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  z-index: 555;
+}
+
+.tan {
+  width: 80%;
+  height: 256rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  position: absolute;
+  top: 50%;
+  margin-top: -128rpx;
+  left: 50%;
+  margin-left: -40%;
+}
+
+.tan view {
+  width: 100%;
+  height: 160rpx;
+  text-align: center;
+  line-height: 160rpx;
+  font-size: 30rpx;
+}
+
+.tan button {
+  width: 50%;
+  height: 96rpx;
+  float: left;
+  border-radius: 0;
+  font-size: 34rpx;
+}
+
+button::after {
+  border-radius: 0;
+}
+
+.quxiao {
+  color: #999;
+}
+
+.quxiao::after {
+  border-bottom-left-radius: 30rpx;
+}
+
+.enter {
+  background: #2979ff;
+  color: #fff;
+}
+
+.enter::after {
+  border-bottom-right-radius: 30rpx;
+}
+
+.no-home-data {
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 88rpx;
+  height: 88rpx;
+  color: #999;
+}

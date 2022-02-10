@@ -1,0 +1,263 @@
+<import src='/pages/orderTemplate/template.wxml' />
+<import src='/pages/addressTemplate/template.wxml' />
+<import src='/pages/productTemplate/template.wxml' />
+<import src='/pages/ordernoTemplate/template.wxml' />
+
+<!--订单详情---待发货-->
+<template name='orderDetail'>
+  <view>
+    <template is='top' data='{{...top}}' />
+  </view>
+  <view> 
+    <template is='address' data="{{orderData}}" />
+  </view> 
+
+
+    <!-- <view hidden='{{newBorder}}'>
+      <template is='newBorder' data='{{wuliuInfo}}' />
+    </view> -->
+
+ 
+  <view class='product-box'>
+    <template is='product-checkout' data='{{orderData,price}}' />
+    <view class='details-box' hidden='{{orderDetail_box}}'>
+      <view class='details' wx:if="{{orderData.groupbuyStatus!=-1}}" catchtap='pinDetail'>拼团详情</view>
+    </view>
+    <view class='product-box-bottom'>
+      <view class='contact'>
+        <image src='../../../imgs/kf-center.png' class='icon' />
+        <text>联系卖家</text>
+        <button open-type='contact'></button>
+      </view>
+      <view class='tel' catchtap='onTel'>
+        <image src='../../../imgs/tell@2x.png' class='icon' />
+        <text>拨打电话</text>
+      </view>
+    </view>
+    <template is='orderno' data='{{orderData,orderno,wuliuInfo,payTime}}' />
+  </view>
+  <view class='we-chat-payment'>
+    <view class='we-chat-payment-left'>
+      <image src='../../../imgs/wechatmsg.png' class='we-chat-payment-img'></image>
+      <text class='we-chat-payment-txt'>微信支付</text>
+    </view>
+    <view class='we-chat-payment-right'>
+      <icon type="success_no_circle" size="20" />
+    </view>
+  </view> 
+ 
+  <view class='orderDetail-reder-bottom {{footerClass}}' hidden='{{pin_tuan}}'>
+    <view wx:if="{{tui}}" class='orderDetail-reder-bottom-left' catchtap='tuiKuan'>申请退款</view>
+    <view wx:else class='orderDetail-reder-bottom-tuikuan' style="background:#999;color:#fff;">申请退款</view>
+    <view wx:if="{{tui}}" class='orderDetail-reder-bottom-right' bindtap='pinDetail' >邀请好友</view>
+  </view>
+
+  <view class='orderDetail-reder-bottom {{footerClass}}' hidden='{{dan_du}}'>
+  <block wx:if='{{tui}}'>
+    <view class='orderDetail-reder-bottom-tuikuan' catchtap='tuiKuan'>申请退款</view>
+  </block>
+  <block wx:else>
+    <view class='orderDetail-reder-bottom-tuikuan bg-disable'>申请退款</view>
+  </block>
+  <block wx:if='{{!dan_du && isOnly}}'>
+    <view class='orderDetail-reder-bottom-tuikuan ' bindtap="goDetail">退款详情</view>
+  </block>
+    <!-- wx:if="{{tui}}" -->
+  </view>
+</template>
+
+<!--订单详情--待收货/确认收货/待退款-->
+<template name='orderPinding'>
+  <view>
+    <template is='top' data='{{...top}}' />
+  </view>
+  <view>
+    <template is='address' data='{{orderData}}' />
+    <view hidden='{{newBorder}}'>
+      <template is='newBorder' data='{{wuliuInfo}}' />
+    </view>
+  </view>
+  <view class='product-box'>
+    <template is='product-checkout' data='{{orderData,price}}' />
+    <view class='details-box' hidden='{{detailsBox}}'>
+      <view class='details-pin-2 ac' catchtap='onSever'>申请售后</view>
+      <view class='details-seller-1' wx:if="{{orderData.groupbuyStatus!=-1}}" catchtap='pinDetail'>拼团详情</view>
+    </view>
+    <view class='details-box' hidden='{{!detailsBox}}'>
+
+      <view class='details-seller-1 normal' wx:if="{{dan_du}}" catchtap='pinDetail'>拼团详情</view>
+      <view class='details-seller-2 ac active' catchtap='sellerDetail'>退款详情</view>
+
+      <!-- <view class='details-seller-2 ac' catchtap='sellerDetail'>退款详情</view> -->
+      <view class='details-seller-1 ' wx:if="{{orderData.groupbuyStatus!=-1}}" catchtap='pinDetail'>拼团详情</view>
+
+    </view>
+    <view class='product-box-bottom'>
+      <view class='contact'>
+        <image src='../../../imgs/kf-center.png' class='icon' />
+        <text>联系卖家</text>
+        <button open-type='contact'></button>
+      </view>
+      <view class='tel' catchtap='onTel'>
+        <image src='../../../imgs/tell@2x.png' class='icon' />
+        <text>拨打电话</text>
+      </view>
+    </view>
+    <template is='orderno' data='{{orderData,orderno,wuliuInfo,payTime,lessShipTime}}' />
+  </view>
+
+  <view class='we-chat-payment' hidden="{{rederAgain}}">
+    <view class='we-chat-payment-left'>
+      <image src='../../../imgs/wechatmsg.png' class='we-chat-payment-img'></image>
+      <text class='we-chat-payment-txt'>微信支付</text>
+    </view>
+    <view class='we-chat-payment-right'>
+      <icon type="success_no_circle" size="20" />
+    </view>
+  </view>
+
+  <view class='orderPinding-reder-bottom {{footerClass}}' hidden='{{rederBottom}}'>
+    <view class='orderPinding-reder-bottom-left' catchtap='chakan'>查看物流</view>
+    <view wx:if="{{noBottom}}" class='orderPinding-reder-bottom-right' catchtap='confirmOrderProduct'>确认收货</view>
+    <view wx:else class='reder-bottom-shop'>签收中</view>
+  </view> 
+   <view class='orderPinding-reder-bottom' hidden='{{rederAgain}}'>
+    <view class='go-shop' bindtap="goShop">再次购买</view>
+  </view> 
+</template>
+
+<!--订单详情--待支付/取消订单/去支付-->
+<template name='orderPayable'>
+  <!-- <view class='timer'>剩余支付时间： {{hours}}:{{minutes}}:{{seconds}}</view> -->
+  <view> 
+    <template is='top' data='{{...top}}' />
+  </view>
+  <view>
+    <template is='address' data="{{orderData}}" />
+  </view>
+  <view class='product-box'>
+    <template is='product-checkout' data='{{orderData,price}}' />
+    <template is='orderno' data='{{orderData,orderno,wuliuInfo,payTime,lessShipTime}}' />
+  </view>
+
+  <view class='we-chat-payment'>
+    <view class='we-chat-payment-left'>
+      <image src='../../../imgs/wechatmsg.png' class='we-chat-payment-img'></image>
+      <text class='we-chat-payment-txt'>微信支付</text>
+    </view>
+    <view class='we-chat-payment-right'>
+      <icon type="success_no_circle" size="20" />
+    </view>
+  </view>
+
+  <view class='orderPayable-reder-bottom'>
+    <view class='orderPayable-reder-bottom-left' catchtap='cancelOrder'>取消订单</view>
+    <!-- <view class='orderPayable-reder-bottom-right' catchtap='goPay'>去支付</view> -->
+    <form wx:if="{{isbtn}}" bindsubmit="goPay" report-submit="true" class='no-border-btn'>
+      <button class='orderPayable-reder-bottom-right' formType="submit">去支付</button>
+    </form>
+    <view wx:else class="disable-btn">去支付</view>
+  </view>
+</template>
+
+<!--订单已经取消/再次购买-->
+<template name='orderCancel'>
+  <view>
+    <template is='top' data='{{...top}}' />
+  </view>
+
+  <view>
+    <template is='address' data="{{orderData}}" />
+  </view>
+  <view hidden='{{newBorder}}'>
+    <template is='newBorder' data='{{wuliuInfo}}' />
+  </view>
+  <view class='product-box'>
+    <template is='product-checkout' data='{{orderData,price}}' />
+    <template is='orderno' data='{{orderData,orderno,wuliuInfo,payTime,lessShipTime}}' />
+  </view>
+
+  <view class='reder-bottom' catchtap='shop'>
+    <view class='reder-bottom-right'>再次购买</view>
+  </view>
+</template>
+
+<!--订单商品列表-->
+<template name='myOrderList'>
+  <view class='order-all'>
+
+        <view class='order-list'>
+          <view class='item' wx:for='{{orderList}}' wx:key='index'>
+            <view class='orderListItem'>
+              <view class='item-top'> 
+                <text class='businessName'>订单号：{{item.orderSn}}</text>   
+                <text class='to-be-paid'>{{item.orderStatusName}}</text>     
+              </view>
+
+              <view class='item-bot' catchtap='orderItem' data-id='{{index}}'>
+                <view class='item-bot-top'>
+                  <image src='{{item.orderProducts[0].defaultImageUrl}}' />
+                  <view class='item-top-left'>
+                    <view class='order-name'>{{item.orderProducts[0].productFullName}}</view>
+                    <view class='order-name'>{{item.orderProducts[0].productName}}</view>
+                    <view class='order-spec'>
+                      <block wx:if="{{item.orderProducts[0].attrName !== null}}">
+                        <text>已选：{{item.orderProducts[0].attrName}}</text>
+                      </block>
+                      <block wx:else>
+                        <text decode="{{true}}">&nbsp;</text>
+                      </block>
+                    </view>
+                    <view class='order-price'>
+                     
+                      <text class='order-money'>
+                      <text>￥</text>{{item.productAmount}}</text>
+                      <text class='order-nimber'>x{{item.orderProducts[0].number}}</text>
+                    </view>
+                  </view>
+                </view>
+                <view class='item-total'>
+                  <view>共{{item.productTotalNo}}件商品</view>
+                  <view class='item-total-right'>
+                    <text>合计:</text>
+
+                    <text class='moeny'>￥{{item.totalAmount}}</text>
+                    <text>(含运费{{item.totalShippingFeeAmount}}元)</text>
+                  </view>
+                </view>
+              </view>
+
+              <view>
+                <view class='item-btn' wx:if="{{item.paymentStatus == 100 && item.orderStatus == 200}}">
+                  <view bindtap='cancelOrder' data-corderid='{{item.orderProducts[0].orderProductId}}' data-cordersn='{{item.orderProducts[0].cOrderSn}}' data-orderid='{{item.orderId}} ' data-orderSn="{{item.orderSn}}">取消订单</view>
+                  <!-- <view class='pay-btn' data-orderSn='{{item.orderSn}}'  data-id='{{index}}'  bindtap='goPayment'>去支付</view> -->
+                  
+                    <form  bindsubmit="goPayment" data-stock="{{skustock}}" data-id='{{index}}' data-orderSn='{{item.orderSn}}' report-submit="true" class='no-border-btn'>
+                      <button class='pay-btn' formType="submit" disable="{{isloading}}">去支付</button>
+                    </form> 
+               
+                </view> 
+
+                 <view class='item-btn' wx:elif="{{item.orderStatus == 201&&order_Status==2}}">
+                    <view class='pay-btn' data-orderSn='{{item.orderSn}}' bindtap='shop' data-index='{{index}}'>再次购买</view>
+                </view>
+
+                 <view class='item-btn' wx:elif="{{order_Status==3}}">
+                  <view class='pay-btn' data-orderSn='{{item.orderSn}}' data-address="{{item.regionName + item.address}}" bindtap='chakan'>查看物流</view>
+                </view>
+              </view> 
+
+            </view>
+          </view>
+        </view>
+
+        <view class='order-all-bot'>
+          <view wx:if="{{isMore}}" class='no-more-order'>上拉加载更多</view>
+          <view wx:if="{{!isMore}}" class='no-more-order' style="font-size:24rpx;">已经到底部了</view>
+          <!--<view class='refresh-btn' catchtap="refresh">
+           
+            <image src='../../../imgs/shuaxin.png'></image>
+          </view> -->
+        </view>
+      </view>
+</template>

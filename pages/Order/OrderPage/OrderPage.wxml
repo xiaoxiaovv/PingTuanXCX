@@ -1,0 +1,22 @@
+<import src='/pages/orderPageTemplate/orderPageTemplate.wxml' />
+<view>
+  <!--订单详情---待发货-->
+  <view hidden='{{orderDetail}}'>
+    <template is='orderDetail' data='{{tui,top,orderData,orderno,wuliuInfo,orderDetail_box,pin_tuan,dan_du,isbtn,payTime,lessShipTime,price,footerClass,isOnly}}'/>
+  </view>
+
+  <!--订单详情--待收货/确认收货/待退款-->
+  <view hidden='{{orderPinding}}'>
+    <template is='orderPinding' data='{{tui,top,orderData,orderno,wuliuInfo,newBorder,detailsBox,rederBottom,noBottom,isbtn,payTime,lessShipTime,price,rederAgain,isOnly,pin_tuan,dan_du,footerClass}}'/>
+  </view>
+
+  <!--订单详情--待支付/取消订单/去支付-->
+  <view hidden='{{orderPayable}}'>
+    <template is='orderPayable' data='{{tui,top,orderData,orderno,wuliuInfo,hours,minutes,seconds,isbtn,payTime,lessShipTime,price,isOnly,pin_tuan,dan_du,footerClass}}'/>
+  </view>
+
+    <!--订单已经取消/再次购买-->
+  <view hidden='{{orderCancel}}'>
+    <template is='orderCancel' data='{{tui,top,orderData,wuliuInfo,orderno,newBorder,isbtn,payTime,lessShipTime,price,isOnly,pin_tuan,dan_du,footerClass}}'/>
+  </view>
+</view>

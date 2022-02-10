@@ -1,0 +1,139 @@
+/* pages/EditAdd/EditAdd.wxss */
+page{
+  background: #eee;
+  height: 100%;
+  padding-bottom: 50rpx;
+  box-sizing: border-box;
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #999999;
+}
+input,.c_black,.region{
+  color: #333333;
+  font-weight: bold
+}
+#name{
+  padding-left: 34rpx;
+  box-sizing:border-box;
+}
+image{
+  width: 100%;
+  height: 100%;
+}
+::-webkit-scrollbar{
+  display: none
+}
+.header{
+  width: 100%;
+  height: 200rpx;
+  box-sizing: border-box;
+  margin-top: 1rpx;
+  position: relative
+}
+.user{
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  
+  box-sizing: border-box;
+}
+ .label_name{
+  box-sizing: border-box;
+  width: 100%;
+  height: 50%;
+  line-height: 99rpx;
+  border-bottom: 1rpx solid #eee;
+} 
+.label_text{
+  padding-left: 30rpx;
+  padding-right: 20rpx;
+  float: left
+}
+  input{
+  width: 75%;
+  height: 100%;
+  float: left;
+  line-height: 100rpx;
+}  
+.tel{
+  border: none
+}
+
+.jiedao{
+  background: #fff;
+  margin-top: 2rpx;
+  height: 100rpx;
+}
+.xiangxi{
+  height: 150rpx;
+}
+.xiangxi textarea{
+  float: left;
+  width: 70%;
+  height: 100%;
+  line-height: 40rpx;
+}
+.set{
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: #fff;
+  margin-top: 20rpx;
+}
+.set text{
+  float: left;
+  margin-left: 30rpx;
+  min-width: 210rpx;
+  height: 42rpx;
+  color: #333333;
+  font-size: 30rpx;
+}
+.kai{
+  width: 80rpx;
+  height: 40rpx;
+  float: right;
+  margin-right: 30rpx;
+}
+.cun{
+  width: 90%;
+  height: 88rpx;
+  line-height: 88rpx;
+  color: #fff;
+  position: fixed;
+  bottom: 35rpx;
+  left: 50%;
+  margin-left: -45%;
+  background: #ff6026;
+  border-radius: 200rpx;
+}
+#detail{
+  overflow: hidden;
+  box-sizing: border-box;
+  color: #333;
+  font-weight: bold;
+  padding-top:22rpx;
+}
+
+/* 选择地址 */
+.s_adr{ background: #fff; border-top:1px solid #efefef;z-index: 102;padding:0px;height:360px; width:100%; position:fixed;bottom:-120px;}
+.a_region {border-bottom: 1px solid #efefef; height:35px; text-align:left;font-size:14px; padding:10px 0 0 20px } 
+.a_region text{display:block;float:left;  margin-right:10px; height: 33px}
+.a_title{ height:40px; line-height: 40px; border-bottom: 1px solid #efefef; color: #999; text-align: center;position: relative}
+.a_curr { color:#f30; border-bottom: 2px solid #f30; }
+.a_list {height:230px;  overflow-y: auto; clear: both; padding-left: 20px } 
+.a_list text{ display: block;height:35px;  line-height:35px; }
+.a_title image{height: 16px; width: 16px; vertical-align: middle}
+.a_left{ position: absolute; left:5px;  top: 0px; height: 30px; width: 30px;}
+.a_right{ position: absolute; right:10px; top: 0px; height: 30px; width: 30px;}
+
+.a_left{ position: absolute; left:5px;  top: 0px; height: 30px; width: 30px;}
+.a_right{ position: absolute; right:10px; top: 0px; height: 30px; width: 30px;}
+/* .toast{display: none} */
+/* .show{display: block;} */
+.hide{display: none}
+
+.mask{opacity:0.5;z-index: 30; background-color: #000;position: fixed; height:100%; width: 100%;top: 0px; }
+.cy_current{ color: #f30}

@@ -1,0 +1,49 @@
+<!--pages/Home/Home.wxml-->
+<import src='/pages/netWork/netWork.wxml' />
+<template is="netWork" data="{{load,networkType}}" /> 
+<scroll-view scroll-y wx:if="{{!networkType}}">
+  <swiper wx:if="{{banner}}" indicator-dots="{{indicatorDots}}" class='swiper' autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular='true'>
+
+    <block wx:for="{{banner}}" wx:key="{{index}}">
+      <swiper-item>
+        <image src="{{item.imageUrl}}" class="slide-image" data-item='{{item}}' catchtap='bannerDetail' />
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view>
+    <view wx:for="{{list}}" wx:key='{{index}}' class='home_lists' >
+      <view catchtap='onDetail' data-id='{{item}}' data-item='{{item}}'>
+        <image src="{{item.imageUrl}}" class='home_listimg' />
+        <view class='home_text'>
+          <view class='home_title'>{{item.activityName}}</view>
+          <view class="home_body">
+            <text class='home_text_usernum'>{{item.num}}人拼</text>
+            <text class='home_text_icon'>￥</text>
+            <text class='home_text_pire'>{{item.groupBuyPrice}}</text>
+            <text class='home_text_pire2'>单购价:￥{{item.singleBuyPrice}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='home_text_btn' data-item='{{item}}' catchtap='goPingtuan'>去拼团</view>
+    </view>
+    <view  class='home_loding' wx:if="{{loading}}">
+      加载中...
+    </view>
+  </view>
+
+  <view wx:if='{{noListDataShow}}' class='no-home-data'>已经到底部了</view>
+
+</scroll-view>
+
+<!--授权登录弹窗-->
+<view class='zhezhao' wx:if="{{zhe}}">
+    <view class='tan'>
+        <view>确定要删除该地址吗？</view>
+        <button class='quxiao' catchtap='onQuxiao'>取消</button>
+        <button class='enter' catchtap='onSure'>确定</button>
+    </view>
+</view>
+
+
+

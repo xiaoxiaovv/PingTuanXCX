@@ -1,0 +1,24 @@
+<!--pages/Order/OrderAftersale/dropdown-box/dropdown-box.wxml-->
+<view class='v-input'>
+  <view class='input-box'>
+    <text class='text'>{{selectStateData.typeName}}：</text>
+    <view class="phone_one" bindtap="clickPerson">
+      <view class="phone_personal">{{selectStateData.firstPerson}}</view>
+      <view class='text-xiala'>
+        <image src='../../../../imgs/xiala.png'></image>
+      </view>
+    </view>   
+    <view class="person_box">
+      <view class="phone_select" hidden="{{selectStateData.selectPerson}}">
+        <view 
+          class="select_one" 
+          catchtap="mySelect"
+          wx:for='{{selectStateData.list}}'
+          wx:key='{{index}}' 
+          data-me="{{item}}">
+          {{item}}
+        </view>
+      </view>
+    </view> 
+  </view>        
+</view>

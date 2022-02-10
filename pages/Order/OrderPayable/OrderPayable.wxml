@@ -1,0 +1,33 @@
+
+<import src='/pages/orderTemplate/template.wxml' />
+<import src='/pages/addressTemplate/template.wxml' />
+<import src='/pages/productTemplate/template.wxml' />
+<import src='/pages/ordernoTemplate/template.wxml' />
+
+<view class='timer'>剩余支付时间： {{hours}}:{{minutes}}:{{seconds}}</view>
+<view>
+  <template is='top' data='{{...top}}'/>
+</view>
+<view>
+  <template is='address' data="{{orderData}}"/>
+</view>
+<view class='product-box'>
+    <template is='product-checkout' data='{{orderData}}' />
+    <template is='orderno' data='{{orderData,orderno}}' />
+</view>
+
+ <view class='we-chat-payment'>
+        <view class='we-chat-payment-left'>
+          <image src='../../../imgs/wechatmsg.png' class='we-chat-payment-img'></image>
+          <text class='we-chat-payment-txt'>微信支付</text>
+        </view>
+        <view class='we-chat-payment-right'>
+          <icon type="success_no_circle" size="20"/>
+        </view>
+ </view>
+
+
+<view class='reder-bottom'>
+  <view class='reder-bottom-left' catchtap='cancelOrder'>取消订单</view>
+  <view  class='reder-bottom-right' catchtap='goPay'>去支付</view>
+</view>

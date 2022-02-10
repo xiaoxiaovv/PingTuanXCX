@@ -1,0 +1,183 @@
+<!--pages/Pinglun/Pinglun.wxml-->
+<import src="/pages/Template/sku.wxml"></import>
+<view class='height'>
+  <view class='header'>
+    <button class='btn_top {{num2==1?"active":""}}' data-num='1' bindtap='onBtnclick'>全部({{totalNum}})</button>
+    <button class='btn_top {{num2==2?"active":""}}' data-num='2' bindtap='onBtnclick'>好评({{positiveNum}})</button>
+    <button class='btn_top {{num2==3?"active":""}}' data-num='3' bindtap='onBtnclick'>中评({{neutralNum}})</button>
+    <button class='btn_top {{num2==4?"active":""}}' data-num='4' bindtap='onBtnclick'>差评({{negativeNum}})</button>
+    <button class='btn_top {{num2==5?"active":""}}' data-num='5' bindtap='onBtnclick'>有图({{hasPicNum}})</button>
+  </view>
+  <!-- 评论区 -->
+  <view class='no' wx:if="{{status}}">暂时没有评价</view>
+  <block wx:for="{{ping}}" wx:key="{{index}}">
+    <view class='pinglunqu'>
+      <!-- 没有评价 -->
+
+      <view class='else'>
+        <!-- <block  wx:for="{{ping}}" wx:key="{{index}}"> -->
+        <view class='user_top'>
+          <image class="img" src='../../imgs/userimg.jpg'></image>
+          <view class='username'>{{item.memberName}}</view>
+          <view class='date'>{{item.createTime}}</view>
+        </view>
+        <view class='pingjia {{item.index?"pingjia2":""}}' data-id='{{index}}' data-item='{{item}}' catchtap='onPing'>{{item.commentContent}}</view>
+        <view class='tu' wx:if="{{item.commentPics}}">
+          <block wx:for="{{item.commentPics}}" wx:key="{{index}}">
+            <view>
+              <image src='{{item.picUrl}}'></image>
+            </view>
+          </block>
+        </view>
+        <!-- 商家回复 -->
+        <block wx:if="{{item.serviceCommentReplies}}" wx:for="{{item.serviceCommentReplies}}" wx:key="{{index}}">
+          <view class='shangjia'>
+            <view class='shangjia1'>小海回复:{{item}}</view>
+            <text class='sanjiao'></text>
+          </view>
+        </block>
+        <!-- 追评 -->
+        <block wx:if="{{item.experienceContent}}">
+          <view class='zhui'>
+            <view class='zhui_top'>
+              <view class='zhui1'>追评</view>
+              <text class='zhui2'>{{item.experienceTime }}</text>
+            </view>
+            <view class='zhui_bottom {{item.index?"pingjia2":""}}' data-id='{{index}}' data-item='{{item}}' catchtap='onPing'>{{item.experienceContent}}</view>
+            <view class='tu' wx:if="{{item.commentPics}}">
+            <block wx:for="{{item.experiencePics}}" wx:key="{{index}}">
+              <view>
+                <image src='{{item.picUrl}}'></image>
+              </view>
+            </block>
+        </view>
+          </view>
+        </block>
+
+        <!-- </block> -->
+      </view>
+
+    </view>
+  </block>
+  <view wx:if="{{loading}}"><button loading="true" class='loading_bottom'>加载中...</button></view>
+  <view wx:else class='di'>已经到底了</view>
+</view>
+ <view class='bar {{barClass}}'>
+      <block wx:for='{{barList}}'>
+        <block wx:if='{{index<2}}'>
+          <block wx:if='{{index===0}}'>
+            <view class='bar-1 bar-view' style='background-color:{{item.bar_backgroundColor}};' data-id='{{index}}' catchtap='myPage'>
+              <image src='{{item.imgUrl}}'></image>
+              <view class='text-2' style="color:{{item.text2_color}}">{{item.text}}</view>
+            </view>
+            <view class='border-bar1'>|</view>
+          </block>
+          <block wx:else>
+            <button open-type="contact" class='my-contact'>
+              <view class='contact-c' style='background-color:{{item.bar_backgroundColor}}' data-id='{{index}}'>
+                <image class='contact-img' src='{{item.imgUrl}}'></image>
+                <view class='contact-text' style="color:{{item.text2_color}}">{{item.text}} </view>
+              </view>
+            </button>
+            <view class='border-bar2'>|</view>
+          </block>
+        </block>
+        <block wx:else>
+        <form bindsubmit="skuShow" class='bar-3 bar-view {{GPopacity}}' data-id='{{index}}' report-submit="true">
+          <button formType="submit">
+              <view class='' style='background-color:{{item.bar_backgroundColor}};height:98rpx; ' data-id='{{index}}'>
+                <block wx:if='{{index==2}}'>
+                    <view class='text-1 single-price' style="color:{{item.text1_color}}">¥ {{singleBuyPrice}}</view>
+                    <view class='text-2 single-price' style="color:{{item.text2_color}}">{{item.text}}</view>
+                </block>
+                <block wx:if='{{index==3}}'>
+                  <view class='text-1' style="color:{{item.text1_color}}">¥ {{groupBuyPrice}}
+                  </view>
+                  <view class='text-2' style="color:{{item.text2_color}}">{{item.text}}</view>
+                </block>
+              </view>
+            </button>
+        </form>
+
+
+        </block>
+      </block>
+    </view>
+<!-- 商品参数 -->
+
+<!-- 商品参数 -->
+<view class="sku_wrap {{skuHidden}}">
+  <view class="sku_pack">
+    <view class='sku_close' bindtap="sKuClose">
+      <image src='../../imgs/close.png'></image>
+    </view>
+    <image src='{{skuimg}}' class='sku_img' />
+    <view class='sku_price_stock'>
+      <view class="sku_price">
+        <text>￥</text>{{skuPrice}} </view>
+      <view class='lh-26 mb-10'>库存 {{skustock}}</view>
+      <view class='lh-26'>已选
+        <block wx:for='{{skuwrap}}' wx:key="id">
+          "{{item.name}}"
+        </block>
+      </view>
+    </view>
+
+    <block wx:for='{{skulist}}' wx:key="id" wx:for-item="skulist">
+      <view class='sku_title'> {{skulist.skuKey}} </view>
+      <block wx:for='{{skulist.skuAttr}}' wx:key="" wx:for-item="skuAttr">
+        <view class="sku_btn {{skuAttr.sgAttribute.ishot}}" data-id='{{index}}' data-sku='{{skuAttr.sgAttribute.id}}{{lk.index}}' data-code='{{skuAttr.sgAttribute.attrCode}}' data-index='{{skuAttr.sgAttribute.id}}{{lk.index}}' bindtap="ChoiceSku"> {{skuAttr.sgAttribute.attrValueName}}</view>
+      </block>
+    </block>
+    <view class="sku_title sku_buynum">
+      购买数量
+      <view class='sku_num'>
+        <text bindtap='skuNumAdd'> + </text>
+        <input bindinput="skuKey" value='{{skuNum}}' />
+        <text bindtap='skuNumMinus'> - </text>
+      </view>
+    </view>
+  </view>
+  <form bindsubmit="goBuy" data-stock="{{skustock}}" report-submit="true">
+    <button class='gobuy border {{gobuy_gray}}' formType="submit">确认</button>
+  </form>
+  <!-- <view class='gobuy {{gobuy_gray}}' bindtap="goBuy"  data-stock="{{skustock}}">确认</view> -->
+</view>
+
+<!--没有参数的情况-->
+<view class="sku_wrap min_wrap {{min_wrap}}">
+  <view class="sku_pack">
+    <view class='sku_close' bindtap="minClose">
+      <image src='../../imgs/close.png'></image>
+    </view>
+    <image src='{{productImg}}' class='sku_img' />
+    <view class='sku_price_stock'>
+      <view class="sku_price">
+        <text>￥</text>
+        <block wx:if='{{proType==9}}'>
+          {{singleBuyPrice}}
+        </block>
+        <block wx:else if='{{proType==6}}'>
+          {{groupBuyPrice}}
+        </block>
+      </view>
+
+
+      <view>库存 {{minSkustock}}</view>
+    </view>
+    <view class="sku_title sku_buynum">
+      购买数量
+      <view class='sku_num'>
+        <text bindtap='skuNumAddMin'> + </text>
+        <input bindinput="skuKeyMin" value='{{skuNum}}' />
+        <text bindtap='skuNumMinusMin'> - </text>
+      </view>
+    </view>
+  </view>
+  <view class='gobuy {{gobuy_gray}}' bindtap="goBuy" data-stock="{{minSkustock}}">确认</view>
+</view>
+<!--商品已经下架-->
+<view class='goods_down {{goodsDown}} {{footerClass}}'>
+  商品已经下架了~
+</view>
+ <view class="mask  {{skuHidden}} {{min_wrap}}" bindtap='close_suk'></view>

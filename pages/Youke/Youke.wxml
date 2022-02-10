@@ -1,0 +1,92 @@
+<!--pages/Youke/Youke.wxml-->
+
+<view class='container'>
+    <block >
+        <view class='tuan'>
+            <image src='{{imageUrl}}' class='shangpin'></image>
+            <view class='shangpin_detail'>
+                <view class='text'>{{productName2}}</view>
+                <view class='tuan_bottom'>
+                    <view class='price'>
+                        <view>
+                          {{num2}}人拼团   已拼{{boughtNum}}件
+                        </view>
+                        <view class='sheng'>
+                          拼团立省10.00元
+                        </view>
+                        <view>
+                            <text class='jiage'>￥{{groupBuyPrice2}}.00</text>
+                            <text class='yuanjia'>￥{{singleBuyPrice2}}.00</text>
+                        </view> 
+                    </view>
+                    <view class='result'>
+                        <view wx:if="{{Tuan}}" class='result2'>
+                            <view class='tuan-detail'>等待成团</view>
+                        </view>
+                        <view wx:else="{{!Tuan}}" class='result3'>
+                            <view class='tuan-detail'>拼团已成</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+
+    <!-- 中间部分  -->
+    <view class='mid'>
+      <view class='content'>
+          <view class='one'></view>
+          <view class='time'>
+              <view class='shengyu'>剩余 <text class='daojishi'> <text>{{hours}}</text>:<text>{{minutes}}</text>:<text>{{seconds}}</text></text> 结束</view> 
+              <view class='join'>赶快参加TA的拼团哦</view>
+              <view class='pin_list'>
+              <!-- 获取拼团人员头像 -->
+                  <view class='relative'>
+                    <image src='../../imgs/Bitmap4 Copy.png' class='list'></image>
+                    <view class='tuanzhang'>团长</view>
+                  </view>
+                  <view>
+                    <image src='../../imgs/+-.png' class='list'></image>
+                  </view>
+                  
+              </view>
+          </view>
+          <view class='one'></view>
+      </view>
+      <!-- 我要参团 -->
+      <view class='myshare'>
+        <button class='btn_myshare'>我要参团</button>
+        <view class='share1'>记得分享给好友哦</view>
+        <view class='share1 share2'>好友拼团 > 成团发货 > 不成团退款</view>
+      </view>
+
+    </view> 
+
+    <!-- 底部 -->
+    <view class='maybe'>你可能还想拼</view>
+    <view class='footer'>
+        <block>
+          <view class='want'>
+              <image src='{{imageUrl}}'></image>
+              <view class='want_detail'>
+                <view class='want_title'>{{productName}}</view>
+                <view class='want_detail detail2'>
+                    <view class='left'>
+                        <view class='footer_pin'>
+                           <text class='footer_pintxt'>{{num}}</text>
+                           人拼
+                        </view>
+                        <text class='jiage jiage2'>￥{{groupBuyPrice}}.00</text>
+                          <text class='ft_dan'>单购价： </text>
+                          <text class='yuanjia yuanjia2'>￥{{singleBuyPrice}}.00</text>
+                    </view>
+                    <view class='right'>
+                        <button class='btn_qupin'>去拼团</button>
+                    </view>
+                </view>
+              </view>
+          </view>
+        </block>
+    </view>
+</view>
+
